@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "name": "pick-your-path-interactive-story",
+  "displayName": {
+    "en": "Pick Your Path - Interactive Story",
+    "vi": "Chọn Đường Đi - Truyện Tương Tác"
+  },
+  "description": {
+    "en": "An interactive story where your choices determine the ending!",
+    "vi": "Một câu chuyện tương tác nơi lựa chọn của bạn quyết định kết cục!"
+  },
+  "category": "Interactive Story",
+  "tags": ["story", "adventure", "choice", "dragon", "princess"],
+  "duration": "short",
+  "effectType": "face_filter",
+  "platform": ["tiktok"],
+  "engineVersion": "2.0",
+  "permissions": {
+    "camera": false,
+    "microphone": false
+  },
+  "assets": {
+    "icons": {
+      "1080x1920": "assets/icon.png"
+    }
+  }
+}

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pick Your Path - Interactive Story</title>
+  <script src="https://effecthouse.tiktok.com/gmes-2.0.4.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    #game-container {
+      width: 100%;
+      max-width: 480px;
+      padding: 20px;
+      text-align: center;
+    }
+    #scene-image {
+      width: 100%;
+      aspect-ratio: 9/16;
+      background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 100%);
+      border-radius: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 120px;
+    }
+    #story-text {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+    }
+    #choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .choice-btn {
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+      color: white;
+    }
+    .choice-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+    }
+    .choice-btn:active {
+      transform: translateY(0);
+    }
+    #progress {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      height: 4px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
+    }
+    #progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #e94560, #ff6b6b);
+      border-radius: 2px;
+      transition: width 0.5s ease;
+    }
+    #ending-badge {
+      display: none;
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    #restart-btn {
+      display: none;
+      padding: 16px 32px;
+      font-size: 18px;
+      background: linear-gradient(135deg, #4ecca3 0%, #45b7aa 100%);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #share-btn {
+      display: none;
+      padding: 16px 32px;
+      font-size: 18px;
+      background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      margin-top: 12px;
+      margin-left: 12px;
+    }
+    #ending-type {
+      font-size: 14px;
+      color: #4ecca3;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="progress">
+    <div id="progress-bar" style="width: 0%"></div>
+  </div>
+
+  <div id="game-container">
+    <div id="ending-badge"></div>
+    <div id="ending-type"></div>
+    <div id="scene-image">🐉</div>
+    <div id="story-text">Loading...</div>
+    <div id="choices"></div>
+    <button id="restart-btn" onclick="restartGame()">Chơi Lại</button>
+    <button id="share-btn" onclick="shareResult()">Chia sẻ</button>
+  </div>
+
+  <script>
+    // Story configuration
+    const STORY_CONFIG = {
+      startScene: "start",
+      maxDepth: 10,
+      scenes: {
+        start: {
+          emoji: "🏰",
+          text: "Bạn là một hiệp sĩ trẻ trong vương quốc Arcana. Một ngày nọ, rồng Theron xuất hiện và bắt cóc công chúa Mia. Vua ban lệnh: ai cứu được công chúa sẽ được thưởng vương vị và一半一半 ngai vàng!",
+          choices: [
+            { text: "🐴 Cưỡi ngựa đuổi theo rồng", next: "chase_dragon" },
+            { text: "🧙‍♂️ Đi tìm phù thủy đại nhân", next: "find_wizard" },
+            { text: "🗺️ Đi đường tắt qua rừng cấm", next: "dark_forest" }
+          ]
+        },
+        chase_dragon: {
+          emoji: "🐎",
+          text: "Bạn phi ngựa thật nhanh! Nhưng rồng Theron bay cao và nhanh hơn. Bạn thấy một hang động ở vách núi phía trước...",
+          choices: [
+            { text: "🏔️ Leo lên vách núi", next: "cliff_climb" },
+            { text: "🌊 Bơi qua sông lớn", next: "river_cross" },
+            { text: "⛺ Dừng lại nghỉ ngơi", next: "rest_stop" }
+          ]
+        },
+        find_wizard: {
+          emoji: "🧙",
+          text: "Phù thủy Aldric sống trên đỉnh núi Phượng Hoàng. Ông đang ngồi đọc sách khi bạn đến. 'Ta đã đợi ngươi, hiệp sĩ trẻ,' ông nói.",
+          choices: [
+            { text: "🙏 Xin phép thuật chống rồng", next: "get_spell" },
+            { text: "📜 Hỏi về điểm yếu của rồng", next: "dragon_weakness" },
+            { text: "💎 Xin một vật phẩm phép thuật", next: "magic_item" }
+          ]
+        },
+        dark_forest: {
+          emoji: "🌲",
+          text: "Rừng Cấm đầy bóng tối và sinh vật bí ẩn. Bạn nghe thấy tiếng khóc của một cô gái...",
+          choices: [
+            { text: "🔍 Đi tìm nguồn tiếng khóc", next: "find_crying" },
+            { text: "⚔️ Rút kiếm chuẩn bị chiến đấu", next: "prepare_fight" },
+            { text: "🏃 Bỏ chạy khỏi khu rừng", next: "run_away" }
+          ]
+        },
+        cliff_climb: {
+          emoji: "🧗",
+          text: "Bạn leo lên vách núi thật cao. Đỉnh núi có một ngôi đền cổ với những bí ẩn chưa được khám phá...",
+          choices: [
+            { text: "🚪 Bước vào ngôi đền", next: "temple_enter" },
+            { text: "🔥 Thắp lửa để soi sáng", next: "light_torch" },
+            { text: "⬇️ Quay xuống đường khác", next: "different_path" }
+          ]
+        },
+        get_spell: {
+          emoji: "✨",
+          text: "Phù thủy dạy bạn Lời Nguyền Rồng - một phép thuật cổ xưa có thể làm rồng bất động trong giây lát. 'Hãy dùng nó một cách khôn ngoan,' ông cảnh báo.",
+          choices: [
+            { text: "🐉 Bay tới lâu đài rồng", next: "ending_hero" },
+            { text: "📚 Ở lại học thêm phép", next: "more_training" }
+          ]
+        },
+        dragon_weakness: {
+          emoji: "💡",
+          text: "'Rồng Theron sợ tiếng sáo của nữ thần Gió,' phù thủy tiết lộ. 'Nhưng nó đã phong ấn cây sáo đó trong ngục tối.'",
+          choices: [
+            { text: "🔓 Đi tìm ngục tối", next: "dungeon" },
+            { text: "🎵 Tự làm một cây sáo", next: "ending_flute" }
+          ]
+        },
+        magic_item: {
+          emoji: "💎",
+          text: "Phù thủy trao cho bạn Viên Đá Ánh Sáng - có thể chiếu sáng bất kỳ bóng tối nào và làm rồng mù trong giây lát.",
+          choices: [
+            { text: "🐉 Tới lâu đài rồng", next: "ending_mage" },
+            { text: "⏳ Chờ đợi thời cơ", next: "wait_opportunity" }
+          ]
+        },
+        find_crying: {
+          emoji: "👸",
+          text: "Bạn tìm thấy một cô gái đang khóc - đó là công chúa Mia! Cô bị lạc trong rừng và không tìm được đường ra.",
+          choices: [
+            { text: "🤝 Giúp công chúa về nhà", next: "ending_princess" },
+            { text: "❓ Hỏi chuyện gì đã xảy ra", next: "ask_story" }
+          ]
+        },
+        temple_enter: {
+          emoji: "🚪",
+          text: "Trong đền, bạn tìm thấy một thanh kiếm huyền thoại - Kiếm Rồng! Nó được ban phước bởi các vị thần cổ đại.",
+          choices: [
+            { text: "⚔️ Rút thanh kiếm ra", next: "ending_legendary" },
+            { text: "🙏 Cầu nguyện tại đền", next: "ending_blessed" }
+          ]
+        },
+        dungeon: {
+          emoji: "🔐",
+          text: "Ngục tối tối tăm và đầy bẫy. Bạn phải vượt qua nhiều thử thách để lấy được cây sáo...",
+          choices: [
+            { text: "🎵 Thổi sáo để xua đuổi quái vật", next: "ending_flute" },
+            { text: "⚔️ Chiến đấu với quái vật", next: "ending_brave" }
+          ]
+        },
+        ending_hero: {
+          emoji: "🏆",
+          text: "Bạn bay tới lâu đài rồng, sử dụng Lời Nguyền Rồng để làm Theron bất động, và cứu được công chúa Mia! Bạn trở thành anh hùng của vương quốc!",
+          ending: "HERO",
+          endingTitle: " anh hùng vĩ đại!"
+        },
+        ending_flute: {
+          emoji: "🎵",
+          text: "Bạn chế tạo một cây sáo và thổy khúc nhạc của nữ thần Gió. Rồng Theron run sợ và buộc phải thả công chúa xuống. Một chiến thắng bằng trí tuệ!",
+          ending: "WISDOM",
+          endingTitle: " hiền nhân bậc thầy!"
+        },
+        ending_mage: {
+          emoji: "🔮",
+          text: "Viên Đá Ánh Sáng làm rồng mù và yếu ớt. Bạn dễ dàng đánh bại nó và cứu công chúa. Phép thuật đã chiến thắng!",
+          ending: "MAGE",
+          endingTitle: " pháp sư vĩ đại!"
+        },
+        ending_princess: {
+          emoji: "💖",
+          text: "Bạn đưa công chúa Mia trở về vương quốc an toàn. Nhà vua vui mừng và ban thưởng cho bạn. Nhưng còn rồng Theron? Nó đã bỏ trốn...",
+          ending: "KIND",
+          endingTitle: " người hảo tâm!"
+        },
+        ending_legendary: {
+          emoji: "⚔️",
+          text: "Thanh Kiếm Rồng tỏa sáng trong tay bạn! Bạn một mình đánh bại rồng Theron và giải phóng vương quốc. Huyền thoại được sinh ra!",
+          ending: "LEGEND",
+          endingTitle: " huyền thoại rồng giết!"
+        },
+        ending_blessed: {
+          emoji: "🙏",
+          text: "Các vị thần nghe thấy lời cầu nguyện của bạn và ban phước cho bạn. Rồng Theron tự động buông tha công chúa và biến mất. Phép màu đã xảy ra!",
+          ending: "DIVINE",
+          endingTitle: " được chư thần phù hộ!"
+        },
+        ending_brave: {
+          emoji: "💪",
+          text: "Bạn chiến đấu kiên cường trong ngục tối, đánh bại mọi quái vật, và cuối cùng lấy được cây sáo. Tiếng sáo của bạn làm rồng bất động!",
+          ending: "BRAVE",
+          endingTitle: " chiến binh dũng cảm!"
+        },
+        river_cross: {
+          emoji: "🌊",
+          text: "Dòng sông rất sâu và chảy xiết. Bạn nhìn thấy một cây cầu gỗ cũ ở xa...",
+          choices: [
+            { text: "🌉 Qua cầu gỗ", next: "bridge_cross" },
+            { text: "🏊 Bơi thẳng qua sông", next: "swim_across" }
+          ]
+        },
+        bridge_cross: {
+          emoji: "🌉",
+          text: "Cây cầu gỗ mục nát! Khi bạn đi giữa cầu, nó bắt đầu sập...",
+          choices: [
+            { text: "🏃 Chạy thật nhanh!", next: "ending_escape" },
+            { text: "🪢 Buộc dây vào cột", next: "ending_smart" }
+          ]
+        },
+        rest_stop: {
+          emoji: "⛺",
+          text: "Bạn nghỉ ngơi và lấy lại sức. Một cụ già đi ngang qua và nói: 'Ta biết một đường tắt...'",
+          choices: [
+            { text: "👴 Nghe theo cụ già", next: "old_man_path" },
+            { text: "🚶 Tiếp tục hành trình", next: "continue_journey" }
+          ]
+        },
+        old_man_path: {
+          emoji: "🗺️",
+          text: "Cụ già dẫn bạn qua một đường hầm bí mật. Đường hầm đưa bạn thẳng tới... lâu đài của rồng!",
+          choices: [
+            { text: "⚔️ Tấn công bất ngờ", next: "ending_ambush" },
+            { text: "🗣️ Thương lượng với rồng", next: "ending_negotiate" }
+          ]
+        },
+        ending_escape: {
+          emoji: "🏃",
+          text: "Bạn chạy thật nhanh và kịp nhảy qua bờ bên kia trước khi cầu sập! Nhưng bạn đã lạc mất dấu rồng...",
+          ending: "ESCAPE",
+          endingTitle: " kẻ bỏ trốn!"
+        },
+        ending_smart: {
+          emoji: "🧠",
+          text: "Bạn buộc dây vào cột và câu giờ. Cầu sập nhưng bạn an toàn! Trí thông minh đã cứu bạn!",
+          ending: "SMART",
+          endingTitle: " thiên tài!"
+        },
+        ending_ambush: {
+          emoji: "⚔️",
+          text: "Bạn tấn công bất ngờ khiến rồng Theron bị thương nặng. Nó không thể chiến đấu và phải thả công chúa!",
+          ending: "AMBUSH",
+          endingTitle: " chiến lược gia!"
+        },
+        ending_negotiate: {
+          emoji: "🤝",
+          text: "Bạn thương lượng với rồng Theron. Hóa ra nó chỉ muốn tìm bạn đời! Bạn giúp rồng tìm được tình yêu và rồng thả công chúa!",
+          ending: "DIPLOMAT",
+          endingTitle: " nhà ngoại giao!"
+        },
+        continue_journey: {
+          emoji: "🛤️",
+          text: "Bạn tiếp tục đi và tìm thấy một cánh rừng kỳ lạ. Một nữ thần xuất hiện và hỏi: 'Ngươi muốn gì?'",
+          choices: [
+            { text: "✨ Xin phép thuật", next: "get_spell" },
+            { text: "💪 Xin sức mạnh", next: "ending_power" }
+          ]
+        },
+        ending_power: {
+          emoji: "💪",
+          text: "Nữ thần ban cho bạn sức mạnh vô song! Bạn dễ dàng đánh bại rồng Theron và cứu công chúa. Sức mạnh của bạn là vô biên!",
+          ending: "POWER",
+          endingTitle: " siêu chiến binh!"
+        },
+        prepare_fight: {
+          emoji: "⚔️",
+          text: "Bạn rút kiếm và chuẩn bị chiến đấu. Một con sói đen khổng lồ xuất hiện!",
+          choices: [
+            { text: "🐺 Đánh bại sói", next: "wolf_fight" },
+            { text: "🏃 Chạy trốn", next: "run_away" }
+          ]
+        },
+        wolf_fight: {
+          emoji: "⚔️",
+          text: "Bạn đánh bại con sói! Nó biến thành một phù thủy - chính là kẻ đã lừa rồng bắt cóc công chúa!",
+          choices: [
+            { text: "🧙 Bắt phù thủy", next: "catch_wizard" },
+            { text: "🐉 Để nó dẫn đường tới rồng", next: "ending_wizard" }
+          ]
+        },
+        catch_wizard: {
+          emoji: "👮",
+          text: "Bạn bắt được phù thủy độc ác và đưa hắn về xử lý. Rồng Theron biết ơn đã thả công chúa!",
+          ending: "JUSTICE",
+          endingTitle: " thẩm phán công lý!"
+        },
+        ending_wizard: {
+          emoji: "🧙",
+          text: "Phù thủy dẫn bạn tới rồng. Nhưng đó là một cái bẫy! Bạn phải dùng hết trí tuệ để thoát ra và cứu công chúa!",
+          ending: "TRICKSTER",
+          endingTitle: " kẻ mưu đồ!"
+        },
+        run_away: {
+          emoji: "🏃",
+          text: "Bạn chạy thật nhanh khỏi khu rừng. Nhưng bạn lạc vào một thung lũng kỳ lạ...",
+          choices: [
+            { text: "🌟 Đi tìm ánh sáng xa", next: "find_light" },
+            { text: "⛺ Nghỉ lại đêm nay", next: "ending_lost" }
+          ]
+        },
+        find_light: {
+          emoji: "🌟",
+          text: "Ánh sáng dẫn bạn tới một ngôi làng. Người dân cho biết: 'Rồng Theron sợ nhất là... tiếng cười!'",
+          choices: [
+            { text: "😂 Tìm hiểu bí mật", next: "ending_laugh" },
+            { text: "🐉 Đi đánh rồng ngay", next: "ending_hero" }
+          ]
+        },
+        ending_laugh: {
+          emoji: "😂",
+          text: "Bạn tìm hiểu ra rằng rồng Theron bị tickle (nhột)! Khi bạn tickle nó, nó cười và nhả công chúa ra! Ai ngờ rồng lại sợ nhột!",
+          ending: "FUNNY",
+          endingTitle: " diễn viên hài quốc dân!"
+        },
+        ending_lost: {
+          emoji: "🏕️",
+          text: "Bạn lạc trong thung lũng nhiều ngày. Cuối cùng một đoàn lữ hành tìm thấy bạn. Công chúa đã tự cứu mình!",
+          ending: "LOST",
+          endingTitle: " kẻ lạc đường!"
+        },
+        ask_story: {
+          emoji: "📖",
+          text: "Công chúa Mia kể: 'Rồng Theron không độc ác như mọi người nghĩ. Nó chỉ đang tìm người bạn đời. Tôi đã trở thành bạn của nó!'",
+          choices: [
+            { text: "💝 Giúp Mia và rồng kết bạn", next: "ending_friend" },
+            { text: "⚔️ Phải cứu công chúa!", next: "ending_hero" }
+          ]
+        },
+        ending_friend: {
+          emoji: "💖",
+          text: "Bạn giúp Mia và rồng Theron trở thành bạn! Nhà vua không tin nhưng cuối cùng đã chấp nhận. Rồng trở thành bảo vệ của vương quốc!",
+          ending: "FRIEND",
+          endingTitle: " người hòa giải!"
+        },
+        more_training: {
+          emoji: "📚",
+          text: "Bạn ở lại học thêm nhiều phép thuật. Khi bạn ra trận, bạn đã là một pháp sư vô địch!",
+          choices: [
+            { text: "🐉 Đánh bại rồng dễ dàng", next: "ending_mage" },
+            { text: "🤝 Thương lượng hòa bình", next: "ending_negotiate" }
+          ]
+        },
+        wait_opportunity: {
+          emoji: "⏳",
+          text: "Bạn chờ đợi trong nhiều ngày, quan sát thói quen của rồng. Một ngày nọ, bạn phát hiện rồng đang ngủ!",
+          choices: [
+            { text: "💎 Lén lấy đá phép", next: "ending_stealth" },
+            { text: "🔓 Thả công chúa", next: "ending_laugh" }
+          ]
+        },
+        ending_stealth: {
+          emoji: "🥷",
+          text: "Bạn lén vào hang rồng, lấy Viên Đá Ánh Sáng và giải cứu công chúa mà không làm rồng tỉnh dậy! Bạn là bậc thầy ẩn thân!",
+          ending: "STEALTH",
+          endingTitle: " ninja vô hình!"
+        },
+        different_path: {
+          emoji: "🛤️",
+          text: "Bạn quay xuống và tìm thấy một con đường mòn dẫn thẳng tới lâu đài rồng!",
+          choices: [
+            { text: "⚔️ Tấn công lâu đài", next: "ending_ambush" },
+            { text: "🤝 Xin diện kiến rồng", next: "ending_negotiate" }
+          ]
+        },
+        light_torch: {
+          emoji: "🔥",
+          text: "Ngọn lửa soi sáng ngôi đền. Bạn thấy một cánh cửa bí ẩn...",
+          choices: [
+            { text: "🚪 Mở cánh cửa", next: "temple_enter" },
+            { text: "⬇️ Quay về", next: "different_path" }
+          ]
+        },
+        swim_across: {
+          emoji: "🏊",
+          text: "Dòng sông cuốn bạn xuôi dòng. Bạn thức dậy trên một bãi biển lạ!",
+          choices: [
+            { text: "🏝️ Khám phá bãi biển", next: "beach_explore" },
+            { text: "🏃 Tìm đường về", next: "run_away" }
+          ]
+        },
+        beach_explore: {
+          emoji: "🏝️",
+          text: "Trên bãi biển, bạn tìm thấy một con tàu đắm! Trong khoang tàu có một cây sáo vàng - có thể là vũ khí bí mật!",
+          choices: [
+            { text: "🎵 Cầm sáo đi tìm rồng", next: "ending_flute" },
+            { text: "💎 Lấy vàng trong tàu", next: "ending_greed" }
+          ]
+        },
+        ending_greed: {
+          emoji: "💰",
+          text: "Bạn lấy vàng và trở nên giàu có!Nhưng công chúa thì sao? Bạn đã quên mất!Cuối cùng bạn sống trong giàu sang nhưng với một chút áy náy...",
+          ending: "GREED",
+          endingTitle: " kẻ tham lam!"
+        }
+      }
+    };
+
+    // Game state
+    let currentScene = STORY_CONFIG.startScene;
+    let visitedScenes = new Set();
+    let depth = 0;
+
+    // Get current scene data
+    function getCurrentScene() {
+      return STORY_CONFIG.scenes[currentScene];
+    }
+
+    // Render the current scene
+    function renderScene() {
+      const scene = getCurrentScene();
+      const emoji = document.getElementById('scene-image');
+      const text = document.getElementById('story-text');
+      const choices = document.getElementById('choices');
+      const progressBar = document.getElementById('progress-bar');
+      const restartBtn = document.getElementById('restart-btn');
+      const shareBtn = document.getElementById('share-btn');
+      const endingBadge = document.getElementById('ending-badge');
+      const endingType = document.getElementById('ending-type');
+
+      // Update progress
+      const progress = Math.min((depth / STORY_CONFIG.maxDepth) * 100, 100);
+      progressBar.style.width = progress + '%';
+
+      // Check if ending
+      if (scene.ending) {
+        emoji.textContent = scene.emoji;
+        text.textContent = scene.text;
+        choices.innerHTML = '';
+        endingBadge.style.display = 'block';
+        endingBadge.textContent = scene.emoji;
+        endingType.style.display = 'block';
+        endingType.textContent = 'KẾT QUẢ: ' + scene.endingTitle;
+        restartBtn.style.display = 'inline-block';
+        shareBtn.style.display = 'inline-block';
+        progressBar.style.width = '100%';
+
+        // Save result for sharing
+        localStorage.setItem('pickypath_result', JSON.stringify({
+          ending: scene.ending,
+          title: scene.endingTitle,
+          depth: depth
+        }));
+
+        // Trigger TikTok share if available
+        if (typeof GMEffect !== 'undefined') {
+          GMEffect.setSharingConfig({
+            title: 'Pick Your Path: ' + scene.endingTitle,
+            message: 'Tôi đã trở thành ' + scene.endingTitle + ' trong Pick Your Path!'
+          });
+        }
+        return;
+      }
+
+      // Regular scene
+      emoji.textContent = scene.emoji;
+      text.textContent = scene.text;
+      choices.innerHTML = '';
+      endingBadge.style.display = 'none';
+      endingType.style.display = 'none';
+      restartBtn.style.display = 'none';
+      shareBtn.style.display = 'none';
+
+      // Render choices
+      scene.choices.forEach((choice, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = choice.text;
+        btn.onclick = () => goToScene(choice.next);
+        choices.appendChild(btn);
+      });
+
+      visitedScenes.add(currentScene);
+    }
+
+    // Navigate to a scene
+    function goToScene(sceneId) {
+      currentScene = sceneId;
+      depth++;
+      renderScene();
+    }
+
+    // Restart game
+    function restartGame() {
+      currentScene = STORY_CONFIG.startScene;
+      visitedScenes.clear();
+      depth = 0;
+      renderScene();
+    }
+
+    // Share result
+    function shareResult() {
+      const result = JSON.parse(localStorage.getItem('pickypath_result') || '{}');
+      if (navigator.share) {
+        navigator.share({
+          title: 'Pick Your Path: ' + result.title,
+          text: 'Tôi đã trở thành ' + result.title + '!',
+          url: window.location.href
+        });
+      } else {
+        alert('Kết quả: ' + result.title + '\nHãy chia sẻ với bạn bè!');
+      }
+    }
+
+    // Initialize game
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize TikTok Effect House SDK
+      if (typeof GMEffect !== 'undefined') {
+        GMEffect.init();
+      }
+      renderScene();
+    });
+
+    // For web preview
+    renderScene();
+  </script>
+</body>
+</html>
