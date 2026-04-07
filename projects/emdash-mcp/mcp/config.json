@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "emdash": {
+      "url": "https://emdash-cms.thanhtungtran364.workers.dev/mcp",
+      "headers": {
+        "Authorization": "Bearer ${EMDASH_CONTENT_TOKEN}"
+      }
+    }
+  }
+}

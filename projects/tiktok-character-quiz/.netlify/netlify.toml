@@ -1,0 +1,27 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\PC\\.paperclip\\instances\\default\\workspaces\\tkp-dev-studio\\projects\\tiktok-character-quiz\\public"
+publishOrigin = "ui"
+commandOrigin = "ui"
+command = "hugo"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

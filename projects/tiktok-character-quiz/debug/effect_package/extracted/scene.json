@@ -1,0 +1,96 @@
+{
+  "version": "1.0",
+  "entities": [
+    {
+      "components": [
+        {
+          "extraType": "Transform",
+          "extra": {
+            "name": "Transform",
+            "extraType": "Transform",
+            "rttiType": "Transform",
+            "eulerAngle": [
+              0,
+              0,
+              0
+            ],
+            "linkage": 0,
+            "editable": true,
+            "_lazyUpgrateVersion": "0.0.0"
+          },
+          "analyticsDetail": [
+            "Transform"
+          ],
+          "businessTag": []
+        },
+        {
+          "extraType": "EffectNode",
+          "extra": {
+            "name": "Render Group",
+            "extraType": "EffectNode",
+            "rttiType": "EffectNode",
+            "editable": true,
+            "_lazyUpgrateVersion": "0.0.0",
+            "type": 5,
+            "sortMethod": 2,
+            "enableInputTexture": false,
+            "inputTexture": "00000000-0000-0000-0000-00000000004b"
+          },
+          "analyticsDetail": [
+            "EffectNode"
+          ],
+          "businessTag": []
+        }
+      ],
+      "name": "General",
+      "children": [
+        {
+          "components": [
+            {
+              "extraType": "Transform",
+              "extra": {
+                "name": "Transform",
+                "extraType": "Transform",
+                "rttiType": "Transform",
+                "eulerAngle": [
+                  0,
+                  0,
+                  0
+                ],
+                "linkage": 0,
+                "editable": true,
+                "_lazyUpgrateVersion": "0.0.0"
+              },
+              "analyticsDetail": [
+                "Transform"
+              ],
+              "businessTag": []
+            },
+            {
+              "extraType": "Camera",
+              "extra": {
+                "name": "Camera",
+                "extraType": "Camera",
+                "rttiType": "Camera",
+                "editable": true,
+                "_lazyUpgrateVersion": "0.0.0",
+                "enableMask": false,
+                "maskTexture": "00000000-0000-0000-0000-000000000802",
+                "physicalFovy": false,
+                "fov": 60,
+                "cachedInputTexture": "00000000-0000-0000-0000-00000000004b",
+                "isAnimatorBound": false
+              },
+              "analyticsDetail": [
+                "Camera_CameraType_Perspective"
+              ],
+              "businessTag": []
+            }
+          ],
+          "name": "Camera",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "guid": {
+      "a": "ca408308-5dcf-ac83-f763-0cf147db13eb",
+      "b": ""
+    },
+    "extraType": "ResItemMaterialOmtl",
+    "name": "roundSquare",
+    "objGuid": "",
+    "rttiType": "Material",
+    "version": "0.4.0",
+    "isVisibleInInspector": true,
+    "hideInPanel": false,
+    "resourceFilePath": "/Users/bytedance/Library/Application Support/EffectHouse/package/QuizGame/QuizGame/QuizGame/QuizGame/Materials/roundSquare.omtl",
+    "skinObjGuid": "Guid(3768355582377537811, 14627449612512507837)",
+    "references": [
+      {
+        "propertyName": "_AlbedoTexture",
+        "guid": "1899b7af-a4d5-c223-40f6-ec8a0f32a715"
+      },
+      {
+        "propertyName": "_MaskTexture",
+        "guid": "1899b7af-a4d5-c223-40f6-ec8a0f32a715"
+      }
+    ]
+  }
+]

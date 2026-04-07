@@ -1,0 +1,13 @@
+'use strict';
+Object.defineProperty(exports, '__esModule', {value: true});
+exports.pluginComponents = void 0;
+
+const pluginComponents = new Map([
+{% for entry in entries %}
+    {% assign key = entry[0] %}
+    {% assign value = entry[1] %}
+    ['{{ key }}', '{{ value }}']{% if forloop.last == false %},{% endif %}
+{% endfor %}
+]);
+
+exports.pluginComponents = pluginComponents;

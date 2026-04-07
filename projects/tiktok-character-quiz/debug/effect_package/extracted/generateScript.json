@@ -1,0 +1,24 @@
+{
+  "Tools": {
+    "env": "node",
+    "folder": "AmazingFeature/Liquid",
+    "script": [
+      "Graph/GraphParser.js",
+      "JSAsset/JSAssetParser.js",
+      "DynamicComponent/DynamicComponentParser.js",
+      "Plugins/PluginUserIndexParser.js"
+    ],
+    "source": [
+      "AmazingFeature/js/Graph/GraphSystem.js",
+      "AmazingFeature/js/JSAssetProvider.js",
+      "AmazingFeature/js/Plugins/index.js",
+      "AmazingFeature/js/Plugins/UserIndex.js"
+    ],
+    "target": [
+      "Graph/GraphSystem.js",
+      "JSAsset/JSAssetProvider.js",
+      "DynamicComponent/index.js",
+      "Plugins/UserIndex.js"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+	"name": "Min",
+	"id": "90451487-81f2-49e1-8a26-86caa4ec6563",
+	"inputs": [
+		{
+			"name": "A",
+			"type": "Double",
+			"item_type": "",
+			"default_value": "0",
+			"description": "The first value",
+			"displayType": "Number",
+			"nameKey": "graph_min_input_a",
+			"descriptionKey": "graph_min_input_a_description",
+			"displayTypeKey": "graph_type_number"
+		},
+		{
+			"name": "B",
+			"type": "Double",
+			"item_type": "",
+			"default_value": "0",
+			"description": "The second value",
+			"displayType": "Number",
+			"nameKey": "graph_min_input_b",
+			"descriptionKey": "graph_min_input_b_description",
+			"displayTypeKey": "graph_type_number"
+		}
+	],
+	"outputs": [
+		{
+			"name": "Result",
+			"type": "Double",
+			"item_type": "",
+			"description": "The lower value",
+			"displayType": "Number",
+			"nameKey": "graph_min_output_result",
+			"descriptionKey": "graph_min_output_result_description",
+			"displayTypeKey": "graph_type_number"
+		}
+	],
+	"js": "CGMin.js",
+	"version": "1.0.0",
+	"amazingVersion": "10.40.0",
+	"luaFuncName": "CGMin",
+	"category": "Math",
+	"description": "Returns the lower of two values. You can click \"+\" to add more inputs.",
+	"productTypes": [
+		"EHO",
+		"EHD",
+		"EHI"
+	],
+	"addableInput": {
+		"index": 1,
+		"baseName": "",
+		"increaseStartIndex": "C"
+	},
+	"nameKey": "graph_min_name",
+	"categoryKey": "graph_category_math",
+	"descriptionKey": "graph_min_description"
+}

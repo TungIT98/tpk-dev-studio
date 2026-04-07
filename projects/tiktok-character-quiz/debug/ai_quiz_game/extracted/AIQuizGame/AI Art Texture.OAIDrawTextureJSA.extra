@@ -1,0 +1,16 @@
+[
+  {
+    "guid": {
+      "a": "dbd50f12-0701-f8ee-ab5a-ffb3339438da",
+      "b": ""
+    },
+    "extraType": "JSAssetAIDrawTexture",
+    "name": "AI Art Texture",
+    "objGuid": "",
+    "rttiType": "Texture",
+    "version": "0.1.0",
+    "isVisibleInInspector": true,
+    "hideInPanel": false,
+    "resourceFilePath": "/Users/bytedance/Library/Application Support/EffectHouse/package/AIQuizGame/AIQuizGame/AI Art Texture.OAIDrawTextureJSA"
+  }
+]

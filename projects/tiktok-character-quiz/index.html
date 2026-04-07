@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Which TikTok Character Are You?</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0D0D0D;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      overflow: hidden;
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    #app {
+      width: 100vw;
+      height: 100vh;
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
+      pointer-events: none;
+    }
+
+    .screen.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ===== START SCREEN ===== */
+    #start-screen {
+      justify-content: flex-end;
+      padding-bottom: 120px;
+    }
+
+    .quiz-title {
+      font-size: 42px;
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-shadow: 0 0 40px rgba(254, 44, 85, 0.6);
+    }
+
+    .quiz-title span {
+      background: linear-gradient(135deg, #FE2C55, #25F4EE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .quiz-subtitle {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .start-btn {
+      background: linear-gradient(135deg, #FE2C55, #FF6B8A);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 18px 60px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(254, 44, 85, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .start-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 4px 16px rgba(254, 44, 85, 0.4);
+    }
+
+    /* TikTok logo watermark */
+    .tiktok-watermark {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ===== QUESTION SCREEN ===== */
+    #question-screen {
+      justify-content: flex-start;
+      padding-top: 100px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      max-width: 360px;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #FE2C55, #25F4EE);
+      border-radius: 3px;
+      transition: width 0.4s ease-out;
+    }
+
+    .progress-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 40px;
+    }
+
+    .question-text {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 36px;
+      line-height: 1.2;
+    }
+
+    .answers {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .answer-btn {
+      background: rgba(255,255,255,0.06);
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 18px 20px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: transform 0.15s ease-out, background 0.15s, border-color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .answer-btn:active {
+      transform: scale(0.97);
+    }
+
+    .answer-btn.selected {
+      background: rgba(254, 44, 85, 0.15);
+      border-color: #FE2C55;
+      transform: scale(1.02);
+    }
+
+    .answer-label {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .answer-btn.selected .answer-label {
+      background: #FE2C55;
+    }
+
+    /* ===== LOADING SCREEN ===== */
+    #loading-screen {
+      justify-content: center;
+    }
+
+    .loading-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+    }
+
+    .loading-dots::after {
+      content: '';
+      animation: dots 1.5s infinite;
+    }
+
+    @keyframes dots {
+      0%, 20% { content: ''; }
+      40% { content: '.'; }
+      60% { content: '..'; }
+      80%, 100% { content: '...'; }
+    }
+
+    .loading-orb {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FE2C55, #25F4EE);
+      margin-bottom: 40px;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(0.8); opacity: 0.6; }
+      to { transform: scale(1.2); opacity: 1; }
+    }
+
+    /* ===== RESULT SCREEN ===== */
+    #result-screen {
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    .result-type-badge {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .result-name {
+      font-size: 36px;
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .result-description {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      max-width: 320px;
+      line-height: 1.5;
+      margin-bottom: 48px;
+    }
+
+    .result-emoji {
+      font-size: 80px;
+      margin-bottom: 32px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .action-btn {
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      padding: 14px 32px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      background: rgba(255,255,255,0.05);
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    .action-btn:active {
+      transform: scale(0.95);
+    }
+
+    .action-btn.primary {
+      background: linear-gradient(135deg, #FE2C55, #FF6B8A);
+      border-color: transparent;
+      box-shadow: 0 8px 24px rgba(254, 44, 85, 0.3);
+    }
+
+    /* Result backgrounds */
+    .result-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-out;
+      pointer-events: none;
+    }
+
+    .result-bg.visible { opacity: 1; }
+
+    .result-bg.type-1 { background: radial-gradient(ellipse at 50% 30%, #FE2C55 0%, #0D0D0D 70%); }
+    .result-bg.type-2 { background: radial-gradient(ellipse at 50% 30%, #25F4EE 0%, #0D0D0D 70%); }
+    .result-bg.type-3 { background: radial-gradient(ellipse at 50% 30%, #FF8C42 0%, #0D0D0D 70%); }
+    .result-bg.type-4 { background: radial-gradient(ellipse at 50% 30%, #9B59B6 0%, #0D0D0D 70%); }
+
+    /* Shake animation */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+
+    .shake { animation: shake 0.3s ease-out; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="screen active">
+      <div class="quiz-title"><span>Which TikTok<br>Character<br>Are You?</span></div>
+      <div class="quiz-subtitle">5 questions · 4 unique results</div>
+      <button class="start-btn" id="start-btn">Start Quiz ✨</button>
+      <div class="tiktok-watermark">TikTok Effect</div>
+    </div>
+
+    <!-- QUESTION SCREEN -->
+    <div id="question-screen" class="screen">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-text" id="progress-text">Question 1 of 5</div>
+      <div class="question-text" id="question-text"></div>
+      <div class="answers" id="answers"></div>
+    </div>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen" class="screen">
+      <div class="loading-orb"></div>
+      <div class="loading-text">Calculating your type<span class="loading-dots"></span></div>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div id="result-screen" class="screen">
+      <div class="result-bg" id="result-bg"></div>
+      <div class="result-emoji" id="result-emoji"></div>
+      <div class="result-type-badge">You are</div>
+      <div class="result-name" id="result-name"></div>
+      <div class="result-description" id="result-description"></div>
+      <div class="result-actions">
+        <button class="action-btn primary" id="retake-btn">🔄 Retake</button>
+        <button class="action-btn" id="share-btn">📤 Share</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===== QUIZ DATA =====
+    const QUIZ_QUESTIONS = [
+      {
+        id: 1,
+        text: "Pick your vibe",
+        answers: [
+          { label: "A", text: "Chaos king/queen — wild energy", value: 1 },
+          { label: "B", text: "Clean and aesthetic — curated perfection", value: 2 },
+          { label: "C", text: "Comfy king — lounging content", value: 3 },
+          { label: "D", text: "Drama llama — always something going on", value: 4 }
+        ]
+      },
+      {
+        id: 2,
+        text: "Your ideal upload time",
+        answers: [
+          { label: "A", text: "3AM — no sleep, no filter", value: 1 },
+          { label: "B", text: "Peak hours — 6-9PM for max views", value: 2 },
+          { label: "C", text: "Golden hour — soft lighting aesthetic", value: 3 },
+          { label: "D", text: "When the drama is hot — moment matters most", value: 4 }
+        ]
+      },
+      {
+        id: 3,
+        text: "Sound matters because...",
+        answers: [
+          { label: "A", text: "The beat is the story", value: 1 },
+          { label: "B", text: "It sets the aesthetic mood", value: 2 },
+          { label: "C", text: "Good sound = cozy ASMR vibes", value: 3 },
+          { label: "D", text: "It's the tea announcer", value: 4 }
+        ]
+      },
+      {
+        id: 4,
+        text: "Pick a collaboration style",
+        answers: [
+          { label: "A", text: "Tag everyone, duel anyone", value: 1 },
+          { label: "B", text: "Matching aesthetics only", value: 2 },
+          { label: "C", text: "Duets only, I'm chill", value: 3 },
+          { label: "D", text: "I start the trends they follow", value: 4 }
+        ]
+      },
+      {
+        id: 5,
+        text: "Your comment section energy",
+        answers: [
+          { label: "A", text: "I'm in the replies starting discourse", value: 1 },
+          { label: "B", text: "I reply to spread positivity", value: 2 },
+          { label: "C", text: "I read every reply like a cozy newsletter", value: 3 },
+          { label: "D", text: "I screenshot and react", value: 4 }
+        ]
+      }
+    ];
+
+    const RESULT_TYPES = [
+      {
+        id: "algorithm_gambler",
+        name: "The Algorithm Gambler",
+        range: [5, 8],
+        description: "Posts at 3AM, thrives on chaos, rides every trend before it peaks. You're either genius or unhinged (maybe both).",
+        emoji: "🔥",
+        bgClass: "type-1"
+      },
+      {
+        id: "aesthetic_architect",
+        name: "The Aesthetic Architect",
+        range: [9, 12],
+        description: "Every frame a mood board. Your content is clean, curated, and effortlessly gorgeous. Beauty is the brand.",
+        emoji: "✨",
+        bgClass: "type-2"
+      },
+      {
+        id: "comfy_king",
+        name: "The Comfy King/Queen",
+        range: [13, 16],
+        description: "Cozy content, warm vibes, ASMR-lite. You turned comfort into a lifestyle brand.",
+        emoji: "☁️",
+        bgClass: "type-3"
+      },
+      {
+        id: "drama_magnet",
+        name: "The Drama Magnet",
+        range: [17, 20],
+        description: "The comment section is your stage. Every post is a chapter in an ongoing saga. Your life is content.",
+        emoji: "⭐",
+        bgClass: "type-4"
+      }
+    ];
+
+    function calculateResult(score) {
+      for (const type of RESULT_TYPES) {
+        if (score >= type.range[0] && score <= type.range[1]) return type;
+      }
+      return RESULT_TYPES[1];
+    }
+
+    // ===== PARTICLE SYSTEM =====
+    class ParticleSystem {
+      constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.resize();
+        this.particles = [];
+        this.emoji = '✨';
+        this.isActive = false;
+        window.addEventListener('resize', () => this.resize());
+      }
+
+      resize() {
+        this.canvas.width = this.canvas.offsetWidth * window.devicePixelRatio;
+        this.canvas.height = this.canvas.offsetHeight * window.devicePixelRatio;
+        this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      }
+
+      setEmoji(emoji) { this.emoji = emoji; }
+
+      start() {
+        this.isActive = true;
+        this.particles = [];
+        this.animate();
+      }
+
+      stop() { this.isActive = false; }
+
+      burst(emoji) {
+        const emojis = { fire: '🔥', sparkle: '✨', cloud: '☁️', star: '⭐', default: '✨' };
+        const e = emojis[emoji] || emojis.default;
+        for (let i = 0; i < 40; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 6 + 3;
+          this.particles.push({
+            x: this.canvas.offsetWidth / 2,
+            y: this.canvas.offsetHeight / 2,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 3,
+            size: Math.random() * 12 + 8,
+            alpha: 1,
+            isEmoji: Math.random() > 0.5,
+            emoji: e,
+            color: `hsl(${Math.random() * 360}, 80%, 60%)`
+          });
+        }
+      }
+
+      animate() {
+        if (!this.isActive) return;
+        const w = this.canvas.offsetWidth;
+        const h = this.canvas.offsetHeight;
+
+        this.ctx.clearRect(0, 0, w, h);
+
+        // Ambient particles
+        if (Math.random() < 0.2 && this.particles.length < 60) {
+          this.particles.push({
+            x: Math.random() * w,
+            y: h + 10,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: -Math.random() * 1.5 - 0.5,
+            size: Math.random() * 6 + 2,
+            alpha: 0.7,
+            isEmoji: false,
+            color: `hsl(${Math.random() * 360}, 80%, 70%)`
+          });
+        }
+
+        this.particles = this.particles.filter(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.05;
+          p.alpha -= 0.008;
+
+          if (p.alpha <= 0 || p.y < -20) return false;
+
+          this.ctx.save();
+          this.ctx.globalAlpha = p.alpha;
+
+          if (p.isEmoji) {
+            this.ctx.font = `${p.size * 4}px Arial`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            this.ctx.fillText(p.emoji, p.x, p.y);
+          } else {
+            this.ctx.beginPath();
+            this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            this.ctx.fillStyle = p.color;
+            this.ctx.shadowBlur = 8;
+            this.ctx.shadowColor = p.color;
+            this.ctx.fill();
+          }
+          this.ctx.restore();
+          return true;
+        });
+
+        if (this.isActive) requestAnimationFrame(() => this.animate());
+      }
+    }
+
+    // ===== QUIZ APP =====
+    const QuizApp = {
+      currentScreen: 'start',
+      currentQuestionIndex: 0,
+      totalScore: 0,
+
+      screens: {
+        start: document.getElementById('start-screen'),
+        question: document.getElementById('question-screen'),
+        loading: document.getElementById('loading-screen'),
+        result: document.getElementById('result-screen')
+      },
+
+      particles: null,
+
+      init() {
+        this.particles = new ParticleSystem(document.getElementById('particle-canvas'));
+        this.particles.start();
+
+        document.getElementById('start-btn').addEventListener('click', () => this.startQuiz());
+        document.getElementById('retake-btn').addEventListener('click', () => this.startQuiz());
+        document.getElementById('share-btn').addEventListener('click', () => this.shareResult());
+
+        // Mobile touch support
+        document.querySelectorAll('.answer-btn').forEach(btn => {
+          btn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            btn.click();
+          });
+        });
+      },
+
+      showScreen(name) {
+        Object.values(this.screens).forEach(s => s.classList.remove('active'));
+        this.screens[name].classList.add('active');
+        this.currentScreen = name;
+      },
+
+      startQuiz() {
+        this.currentQuestionIndex = 0;
+        this.totalScore = 0;
+        this.showScreen('question');
+        this.renderQuestion();
+      },
+
+      renderQuestion() {
+        const q = QUIZ_QUESTIONS[this.currentQuestionIndex];
+        const progress = this.currentQuestionIndex + 1;
+        const total = QUIZ_QUESTIONS.length;
+
+        document.getElementById('progress-fill').style.width = `${(progress / total) * 100}%`;
+        document.getElementById('progress-text').textContent = `Question ${progress} of ${total}`;
+        document.getElementById('question-text').textContent = q.text;
+
+        const answersEl = document.getElementById('answers');
+        answersEl.innerHTML = '';
+
+        q.answers.forEach((ans, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'answer-btn';
+          btn.innerHTML = `<span class="answer-label">${ans.label}</span><span>${ans.text}</span>`;
+          btn.addEventListener('click', () => this.selectAnswer(ans.value, btn));
+          answersEl.appendChild(btn);
+        });
+      },
+
+      selectAnswer(value, btnEl) {
+        // Prevent double-taps using instance-level guard
+        if (this.answerSelected) return;
+        this.answerSelected = true;
+
+        // Visual feedback
+        document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
+        btnEl.classList.add('selected');
+
+        // Scale pulse animation
+        btnEl.style.transform = 'scale(1.05)';
+        setTimeout(() => { btnEl.style.transform = ''; }, 200);
+
+        this.totalScore += value;
+
+        // Next question or result
+        setTimeout(() => {
+          this.currentQuestionIndex++;
+          if (this.currentQuestionIndex >= QUIZ_QUESTIONS.length) {
+            this.showLoading();
+          } else {
+            this.renderQuestion();
+            // Reset guard for next question
+            this.answerSelected = false;
+          }
+        }, 300);
+      },
+
+      showLoading() {
+        this.showScreen('loading');
+        // Force pointer-events: none initially so Playwright can verify the transition
+        this.screens.loading.style.pointerEvents = 'none !important';
+        // Re-enable pointer-events after brief delay
+        setTimeout(() => {
+          this.screens.loading.style.pointerEvents = 'auto !important';
+        }, 100);
+        setTimeout(() => {
+          this.showResult();
+        }, 1500);
+      },
+
+      showResult() {
+        const result = calculateResult(this.totalScore);
+        const bg = document.getElementById('result-bg');
+        bg.className = `result-bg visible ${result.bgClass}`;
+        document.getElementById('result-emoji').textContent = result.emoji;
+        document.getElementById('result-name').textContent = result.name;
+        document.getElementById('result-description').textContent = result.description;
+
+        this.showScreen('result');
+
+        // Particle burst
+        this.particles.burst(result.id.replace('_', ''));
+
+        // Update particle emoji
+        this.particles.setEmoji(result.emoji);
+      },
+
+      shareResult() {
+        const result = calculateResult(this.totalScore);
+        const text = `I got "${result.name}" on the "Which TikTok Character Are You?" quiz! ${result.emoji} Get yours at Effect House!`;
+        if (navigator.share) {
+          navigator.share({ text });
+        } else {
+          navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('share-btn');
+            btn.textContent = '✅ Copied!';
+            setTimeout(() => { btn.textContent = '📤 Share'; }, 2000);
+          });
+        }
+      }
+    };
+
+    // Initialize on DOM ready (script at bottom of body, so DOM is ready)
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => QuizApp.init());
+    } else {
+      QuizApp.init();
+    }
+  </script>
+</body>
+</html>

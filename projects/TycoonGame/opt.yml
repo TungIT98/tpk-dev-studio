@@ -1,0 +1,8 @@
+# Wally Luau Dependencies
+# https://github.com/UpliftGames/wally
+name: "tkp-studio/tycoon-game"
+version: "1.0.0"
+registry: "https://github.com/UpliftGames/wally-index"
+directory: "src/wally_modules"
+
+[dependencies]

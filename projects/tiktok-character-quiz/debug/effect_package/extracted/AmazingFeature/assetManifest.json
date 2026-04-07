@@ -1,0 +1,1365 @@
+{
+  "assets": {
+    "jsscripts": [
+      {
+        "path": "js/AmazingProJS/APJSCore.js",
+        "md5": "9e84bb81f396b2ff874eacdf6d41c900",
+        "version": "1.26.0",
+        "minSDKVersion": "19.9.0",
+        "isRemote": true
+      },
+      {
+        "path": "js/AmazingProJS/AABB.js",
+        "md5": "cdc3e784c2489fd0a07fdfc3ea7137e9"
+      },
+      {
+        "path": "js/AmazingProJS/AMGChar.js",
+        "md5": "23e734d07a6e25c30a31aee137d3597c"
+      },
+      {
+        "path": "js/AmazingProJS/AMGClothInfo.js",
+        "md5": "794877403cc50af0f717eb59d3e7b05e"
+      },
+      {
+        "path": "js/AmazingProJS/AMGCollisionFinder.js",
+        "md5": "8965ec1c6d2f7d758aeb20ac4b146e93"
+      },
+      {
+        "path": "js/AmazingProJS/AMGCollisionFinder2D.js",
+        "md5": "8b0df1582d56e1f5a23b183e02d4cd8a"
+      },
+      {
+        "path": "js/AmazingProJS/AMGContactInfo.js",
+        "md5": "4570d9d463b1603379e3ef2cc7e14a4d"
+      },
+      {
+        "path": "js/AmazingProJS/AMGModifiedProperty.js",
+        "md5": "ae6cb4db1b77f2fee08bad3e47013be3"
+      },
+      {
+        "path": "js/AmazingProJS/AMGModifiedPropertyHandler.js",
+        "md5": "75fcca7ecee328ef2f56d9b9497e7a68"
+      },
+      {
+        "path": "js/AmazingProJS/AMGPbdSimulator.js",
+        "md5": "7477967f98fb38eb38e3a7c5986fad2d"
+      },
+      {
+        "path": "js/AmazingProJS/AMGPointSampler.js",
+        "md5": "5c4e6f82516fdc34dec4e069bb3ec80d"
+      },
+      {
+        "path": "js/AmazingProJS/AMGRayHitInfo.js",
+        "md5": "a77eb4ad10b1f2f472cae70c617fef43"
+      },
+      {
+        "path": "js/AmazingProJS/AMGSimulator2D.js",
+        "md5": "02bbec93b78407830736dea8f2a35e5c"
+      },
+      {
+        "path": "js/AmazingProJS/AMGSoftBodyInfo.js",
+        "md5": "441d5d7f88133ada58e283b2534398ee"
+      },
+      {
+        "path": "js/AmazingProJS/AMGTetMeshInfo.js",
+        "md5": "c4e0b012487d9ba2b9b0f5eb80677165"
+      },
+      {
+        "path": "js/AmazingProJS/AMGVolumetricMeshUtils.js",
+        "md5": "5770cd932475488cdb579a6fbb0460a8"
+      },
+      {
+        "path": "js/AmazingProJS/AObject.js",
+        "md5": "274f15550469f73a76a59b29b23e4256"
+      },
+      {
+        "path": "js/AmazingProJS/AfterEffectCommon.js",
+        "md5": "5093d072a910b88da2d10de45ffe4446"
+      },
+      {
+        "path": "js/AmazingProJS/AlgorithmAsset.js",
+        "md5": "3fe80fbf9d10b5579f7b75ad1562366e"
+      },
+      {
+        "path": "js/AmazingProJS/AlgorithmEnumsAndInterfaces.js",
+        "md5": "8a54235fac4c00e1b86b8c6fda89a19d"
+      },
+      {
+        "path": "js/AmazingProJS/AlgorithmManager.js",
+        "md5": "31458453d50f4dae4e4513bf3eaa99a3"
+      },
+      {
+        "path": "js/AmazingProJS/AlgorithmResultDescription.js",
+        "md5": "a157003b17c3e314562700bb58141d8e"
+      },
+      {
+        "path": "js/AmazingProJS/AmazingManager.js",
+        "md5": "e3ea14d6fc18a30b737e2ebb5cd97f35"
+      },
+      {
+        "path": "js/AmazingProJS/AmazingUtil.js",
+        "md5": "f50f732e43296c30f6f6430180b219bd"
+      },
+      {
+        "path": "js/AmazingProJS/AnalyticsManager.js",
+        "md5": "1a57fa2a87d1ec3ba0b867b398f06550"
+      },
+      {
+        "path": "js/AmazingProJS/AngleBinaryProgram.js",
+        "md5": "aa52dfe401ff11415cb552c2ddf79cd4"
+      },
+      {
+        "path": "js/AmazingProJS/AnimSeq.js",
+        "md5": "13efd86641f655f3eb2f6993338adc61"
+      },
+      {
+        "path": "js/AmazingProJS/AnimSeqComponent.js",
+        "md5": "4167dda4b65a1bcf814f98683d663ddf"
+      },
+      {
+        "path": "js/AmazingProJS/AnimSequenceEventInfo.js",
+        "md5": "4c98b31479fb899a60b88834eacd6b8f"
+      },
+      {
+        "path": "js/AmazingProJS/AnimatedMesh.js",
+        "md5": "c5677248e3bc3a473cddd6dd0e9e385c"
+      },
+      {
+        "path": "js/AmazingProJS/AnimatedTextureProvider.js",
+        "md5": "ec12bc2aefef3cd08f03281e7bdd837f"
+      },
+      {
+        "path": "js/AmazingProJS/Animation.js",
+        "md5": "af9fbbd60edb898adcee0c6d9dd374c7"
+      },
+      {
+        "path": "js/AmazingProJS/AnimationClip.js",
+        "md5": "c1e055bd5cde45ef8a4d403e19aa65b3"
+      },
+      {
+        "path": "js/AmazingProJS/AnimationLayer.js",
+        "md5": "bfca9b41a457571e244c2c3d5b430f85"
+      },
+      {
+        "path": "js/AmazingProJS/AnimationState.js",
+        "md5": "07596920e4dbdd08da866d4d4acef723"
+      },
+      {
+        "path": "js/AmazingProJS/AnimationTrack.js",
+        "md5": "a07f408477a2c3f3c7446c51db890ad0"
+      },
+      {
+        "path": "js/AmazingProJS/Animator.js",
+        "md5": "023261b662ea4700bd01a807a907184f"
+      },
+      {
+        "path": "js/AmazingProJS/AppInfo.js",
+        "md5": "b999c86ed60b099b3b7c4ace974019a3"
+      },
+      {
+        "path": "js/AmazingProJS/ArtTextAsset.js",
+        "md5": "d12c2722e9f2f0d463674870fdfab70b"
+      },
+      {
+        "path": "js/AmazingProJS/AssetImporter.js",
+        "md5": "7c51fbf0319045b69d4e93366634f48c"
+      },
+      {
+        "path": "js/AmazingProJS/AssetManager.js",
+        "md5": "aa15b5b86367a0d9f3412cb2afe1deac"
+      },
+      {
+        "path": "js/AmazingProJS/AssetRedirectData.js",
+        "md5": "082334bb4ec2fbe07932e1a842c70ee3"
+      },
+      {
+        "path": "js/AmazingProJS/AttributeMap.js",
+        "md5": "bf260ec8268eef774eb15ef078bc6a50"
+      },
+      {
+        "path": "js/AmazingProJS/Audio.js",
+        "md5": "a9186d1084d018259cc664a5ce358157"
+      },
+      {
+        "path": "js/AmazingProJS/AudioAsset.js",
+        "md5": "53f0deb698c4f29ba208e01f61ff7e1d"
+      },
+      {
+        "path": "js/AmazingProJS/AudioFeature.js",
+        "md5": "df27fa70d61b562d2bc548aec766aee8"
+      },
+      {
+        "path": "js/AmazingProJS/AudioGraph.js",
+        "md5": "61af24b4e8c95306b29de9ac70dd40ea"
+      },
+      {
+        "path": "js/AmazingProJS/AudioGraphAssembler.js",
+        "md5": "a2e7d3a8e2864e351ca28e72deab8301"
+      },
+      {
+        "path": "js/AmazingProJS/AudioTTSManager.js",
+        "md5": "30cea398230b45f77be65dbfc7d855eb"
+      },
+      {
+        "path": "js/AmazingProJS/BaseClip.js",
+        "md5": "90d8ed8a6ce867e67790c420d7c078bb"
+      },
+      {
+        "path": "js/AmazingProJS/BaseText.js",
+        "md5": "d8b84279f86c9b9c74f6ad1dfb612979"
+      },
+      {
+        "path": "js/AmazingProJS/BasicScriptComponent.js",
+        "md5": "1d3d562868c2c7188ecf2db1688a3bdf"
+      },
+      {
+        "path": "js/AmazingProJS/BehaviorComponent.js",
+        "md5": "e7429659d91febed441b3feee7757fcf"
+      },
+      {
+        "path": "js/AmazingProJS/BoxCollider.js",
+        "md5": "c1a230ff7a0617b1a88d72ce282879ce"
+      },
+      {
+        "path": "js/AmazingProJS/BoxCollider2D.js",
+        "md5": "95e2da9b9c939f5fba44d1d8541f0adb"
+      },
+      {
+        "path": "js/AmazingProJS/Buffer.js",
+        "md5": "0e79796099d4f48b48a8472c4b95c964"
+      },
+      {
+        "path": "js/AmazingProJS/BuiltinObject.js",
+        "md5": "147d00bbda0198dd8dd55394f2cbd24e"
+      },
+      {
+        "path": "js/AmazingProJS/Camera.js",
+        "md5": "2bb80a410b881ce9626007de6a403ffa"
+      },
+      {
+        "path": "js/AmazingProJS/CapsuleCollider.js",
+        "md5": "a0d53903015283326a85b152fc911696"
+      },
+      {
+        "path": "js/AmazingProJS/CircleCollider2D.js",
+        "md5": "d5ea4e351d9cac8f3eb19d60043bdde9"
+      },
+      {
+        "path": "js/AmazingProJS/CollectionUtils.js",
+        "md5": "ed50b7e8937c7e35503be1e213d4b668"
+      },
+      {
+        "path": "js/AmazingProJS/Collider.js",
+        "md5": "1d56b201c257a8494e41219b9c25d8e5"
+      },
+      {
+        "path": "js/AmazingProJS/Collider2D.js",
+        "md5": "aeb7ac4ae168816cd64732780f927d48"
+      },
+      {
+        "path": "js/AmazingProJS/CollisionEvent.js",
+        "md5": "4bd18e6ca9b6ee7d0ada9745f9566817"
+      },
+      {
+        "path": "js/AmazingProJS/CollisionEvent2D.js",
+        "md5": "00da854f19bb633ea686bb9e0fc69163"
+      },
+      {
+        "path": "js/AmazingProJS/Color.js",
+        "md5": "cca9fec95396bd44e274e5b1528621c9"
+      },
+      {
+        "path": "js/AmazingProJS/CommandBuffer.js",
+        "md5": "449c3df1397d12283ba47a880225e296"
+      },
+      {
+        "path": "js/AmazingProJS/Component.js",
+        "md5": "bdcef81ccdeaec72ab5915325c2f8b34"
+      },
+      {
+        "path": "js/AmazingProJS/ComputeEntity.js",
+        "md5": "425aa531e9b8329ecf54bc6bcc44d1fa"
+      },
+      {
+        "path": "js/AmazingProJS/DeviceInfo.js",
+        "md5": "caf332cedc62ee6eab25f3a47c499ca9"
+      },
+      {
+        "path": "js/AmazingProJS/DirectionalLight.js",
+        "md5": "678fc6b575903d356e7e2729592d95ed"
+      },
+      {
+        "path": "js/AmazingProJS/DistanceJoint2D.js",
+        "md5": "d41c41d1c8b6a89b41132166774557f1"
+      },
+      {
+        "path": "js/AmazingProJS/DoubleVector.js",
+        "md5": "f3f1931e7c1c39d060fdf0ec92593522"
+      },
+      {
+        "path": "js/AmazingProJS/DrawTextureCreateDesc.js",
+        "md5": "ac94b3b7b6bf44a7ed3ced28e7fc8b41"
+      },
+      {
+        "path": "js/AmazingProJS/DrawTextureProvider.js",
+        "md5": "6504f72c1e763340aa4220bd571e8dac"
+      },
+      {
+        "path": "js/AmazingProJS/DualInstance.js",
+        "md5": "2ced43a7b9ebb8e2e90f4fb8a28b28aa"
+      },
+      {
+        "path": "js/AmazingProJS/DynamicAssetInterface.js",
+        "md5": "a86a34916b3f62620454c7c77cf637f4"
+      },
+      {
+        "path": "js/AmazingProJS/DynamicAssetRuntimeManager.js",
+        "md5": "a90bb596334d90d774fea8f55f701b29"
+      },
+      {
+        "path": "js/AmazingProJS/DynamicBitset.js",
+        "md5": "f004ae9754a974c52d1b95112fec6f36"
+      },
+      {
+        "path": "js/AmazingProJS/DynamicChain.js",
+        "md5": "318aac2cd405d3e061be7509b9c5ddba"
+      },
+      {
+        "path": "js/AmazingProJS/DynamicComponent.js",
+        "md5": "36eceda58ec450b163662e12a303dd29"
+      },
+      {
+        "path": "js/AmazingProJS/EdgeCollider2D.js",
+        "md5": "23f273b90b88b2f03f9c62f6fd30c0ed"
+      },
+      {
+        "path": "js/AmazingProJS/EffectNode.js",
+        "md5": "09759035566978b66bbf1c3dd2c55dd4"
+      },
+      {
+        "path": "js/AmazingProJS/EffectTextParam.js",
+        "md5": "e37c5e878eaa8af07792a6f04abbf314"
+      },
+      {
+        "path": "js/AmazingProJS/Enum.js",
+        "md5": "051db9fd744d5d51638f627bdb7c09ef"
+      },
+      {
+        "path": "js/AmazingProJS/EnvironmentLight.js",
+        "md5": "e3fe7d151d2f88fff168878208779dc0"
+      },
+      {
+        "path": "js/AmazingProJS/Event.js",
+        "md5": "8ead8f9e14e8e43e8bbae310171c2b9a"
+      },
+      {
+        "path": "js/AmazingProJS/EventManager.js",
+        "md5": "b24aede9ab24cc58cd92ca83f2648573"
+      },
+      {
+        "path": "js/AmazingProJS/EventType.js",
+        "md5": "1a524ad006f1c26f6282731a281d7ae6"
+      },
+      {
+        "path": "js/AmazingProJS/Face3DMeshProvider.js",
+        "md5": "2cf6f54b947b1abf5cc686814aa09554"
+      },
+      {
+        "path": "js/AmazingProJS/FaceCapture.js",
+        "md5": "c09b2ea2ec439b5590c408587aad7797"
+      },
+      {
+        "path": "js/AmazingProJS/FaceInsetMeshGenerator.js",
+        "md5": "46d6a85f16b13ed964ceea2ae8c0beb3"
+      },
+      {
+        "path": "js/AmazingProJS/FaceInsetRenderer.js",
+        "md5": "8164c69c202c17131941b5f5c1daf563"
+      },
+      {
+        "path": "js/AmazingProJS/FaceMakeup.js",
+        "md5": "0608017bcfbb7307d2002df9a191fcc0"
+      },
+      {
+        "path": "js/AmazingProJS/FaceMakeupIris.js",
+        "md5": "5e95b61a1f015574b1ac5cc100fc184c"
+      },
+      {
+        "path": "js/AmazingProJS/FaceStretchComponent.js",
+        "md5": "91ac49c35ef78e6744c7ebbce6ca8191"
+      },
+      {
+        "path": "js/AmazingProJS/FaceWarpXModelInfo.js",
+        "md5": "1c136bee6705889e2fadcc02682bdd5f"
+      },
+      {
+        "path": "js/AmazingProJS/FaceWarpXRenderer.js",
+        "md5": "5e128b2b46e777f2a10d5f182680d2cd"
+      },
+      {
+        "path": "js/AmazingProJS/FaceWarpXToolUtils.js",
+        "md5": "fe9e71f719a5dbe0743ce46d797825c6"
+      },
+      {
+        "path": "js/AmazingProJS/FaceWarpXWarpInfo.js",
+        "md5": "1b092e3a0f6af7d1d9469d4d62dca6a3"
+      },
+      {
+        "path": "js/AmazingProJS/FixedJoint.js",
+        "md5": "0dce86a15459d49b9fa6333fe47b477d"
+      },
+      {
+        "path": "js/AmazingProJS/FixedJoint2D.js",
+        "md5": "f4b007c4285470fc125f19b9911fc112"
+      },
+      {
+        "path": "js/AmazingProJS/FloatVector.js",
+        "md5": "e8dc93c6425003f0a5cf924e02e7a6c4"
+      },
+      {
+        "path": "js/AmazingProJS/GSplat.js",
+        "md5": "6483f8ab66bb1a82ceade042adac12e6"
+      },
+      {
+        "path": "js/AmazingProJS/GSplatCollider.js",
+        "md5": "68fa7fb662a441777ccfdee269be8cc1"
+      },
+      {
+        "path": "js/AmazingProJS/GSplatRenderer.js",
+        "md5": "b2f19bb2dd650577ee9d9c157a3c5ee9"
+      },
+      {
+        "path": "js/AmazingProJS/GeometryMesh.js",
+        "md5": "cc88be59a618c0ad7eadfc8f5c55f00b"
+      },
+      {
+        "path": "js/AmazingProJS/GifAsset.js",
+        "md5": "c074f73cef6efbd7c8fd12afb1f06a4c"
+      },
+      {
+        "path": "js/AmazingProJS/GifTextureProvider.js",
+        "md5": "7e341764d1127f7cabe1875b4032e152"
+      },
+      {
+        "path": "js/AmazingProJS/GlobalDefine.js",
+        "md5": "08258545e32a6e718bcf63a8bb980ae3"
+      },
+      {
+        "path": "js/AmazingProJS/Guid.js",
+        "md5": "ad19fb2682de88d1fe0f3a13d2b5d286"
+      },
+      {
+        "path": "js/AmazingProJS/HapticsModule.js",
+        "md5": "cfa79b4e8d19ea8cb3f80247d4f7e9fd"
+      },
+      {
+        "path": "js/AmazingProJS/Head3DUtil.js",
+        "md5": "dbd63c2b435944fda4e61e1fd90fa84c"
+      },
+      {
+        "path": "js/AmazingProJS/HingeJoint.js",
+        "md5": "79719c3c27c7d5a890fec1a7a2c5c2ec"
+      },
+      {
+        "path": "js/AmazingProJS/HingeJoint2D.js",
+        "md5": "bfbfd8aa31d4f99e1ea616c52605f951"
+      },
+      {
+        "path": "js/AmazingProJS/IFAnchorAligment.js",
+        "md5": "0b46813be8fced46ce641a591bc9c19b"
+      },
+      {
+        "path": "js/AmazingProJS/IFCanvas2d.js",
+        "md5": "f438fca65f1a40b181ed2e0460692469"
+      },
+      {
+        "path": "js/AmazingProJS/IFFaceAnchorAlignment.js",
+        "md5": "48c0f20f747801f7d4e2f53a6d89c2f6"
+      },
+      {
+        "path": "js/AmazingProJS/IFHandAnchorAlignment.js",
+        "md5": "854a88dccf79ed8bca3c2426df9b02ce"
+      },
+      {
+        "path": "js/AmazingProJS/IFLayer2d.js",
+        "md5": "1dfe9ce2e59f511e2260a9f3a3320068"
+      },
+      {
+        "path": "js/AmazingProJS/IFPetAnchorAlignment.js",
+        "md5": "fce0bd35562133eaeda068375712802b"
+      },
+      {
+        "path": "js/AmazingProJS/IFScriptComponent.js",
+        "md5": "63e10aef719c41fbe45cf226399341c4"
+      },
+      {
+        "path": "js/AmazingProJS/IFSkeletonAnchorAlignment.js",
+        "md5": "b13b4ab556bba6f9d7ae5f12a31cedc8"
+      },
+      {
+        "path": "js/AmazingProJS/IFSprite2d.js",
+        "md5": "49ffba70a4faba7d79907f276320ef35"
+      },
+      {
+        "path": "js/AmazingProJS/IFTransform2d.js",
+        "md5": "05a143c6266051c99b909e75b8e1b223"
+      },
+      {
+        "path": "js/AmazingProJS/IFWidget.js",
+        "md5": "b31143cb1a3eac0a48d52cec3e27585f"
+      },
+      {
+        "path": "js/AmazingProJS/Image.js",
+        "md5": "0cc1b855faeb79a5790178b784f1d27e"
+      },
+      {
+        "path": "js/AmazingProJS/ImageAsset.js",
+        "md5": "7f70f85d2ec898a4cb712e1f7878363a"
+      },
+      {
+        "path": "js/AmazingProJS/ImageAtlas.js",
+        "md5": "ea61a5e46e1de353f15b84ff01f405e2"
+      },
+      {
+        "path": "js/AmazingProJS/ImageFrame.js",
+        "md5": "09fff5c96f5c1f4c6f5abe221eef7f44"
+      },
+      {
+        "path": "js/AmazingProJS/ImageProvider.js",
+        "md5": "f96a97c66f8c9267d7aa9b8de5de30c5"
+      },
+      {
+        "path": "js/AmazingProJS/Input.js",
+        "md5": "f8f947937d08b50cbea06f3552dcf56c"
+      },
+      {
+        "path": "js/AmazingProJS/Int16Vector.js",
+        "md5": "265cb1e56485b428b11f7196ce31cb20"
+      },
+      {
+        "path": "js/AmazingProJS/Int32Vector.js",
+        "md5": "b653a889d361cfbdfded8c6dd7151338"
+      },
+      {
+        "path": "js/AmazingProJS/Int64Vector.js",
+        "md5": "03176555a211f9a083fb30d3b394caa5"
+      },
+      {
+        "path": "js/AmazingProJS/Int8Vector.js",
+        "md5": "615521eabfef72a57ef0b1082e84f807"
+      },
+      {
+        "path": "js/AmazingProJS/JSManager.js",
+        "md5": "8e181830c093724f8f80017ee5a6e1b2"
+      },
+      {
+        "path": "js/AmazingProJS/JSScript.js",
+        "md5": "eb1e03fd86cc597af726d3d6f3b84a5d"
+      },
+      {
+        "path": "js/AmazingProJS/JSScriptComponent.js",
+        "md5": "8291dd6771b41fff2757ba6137393aac"
+      },
+      {
+        "path": "js/AmazingProJS/JSScriptMethodInfo.js",
+        "md5": "36d18ee8791a57e47b344fec2753047e"
+      },
+      {
+        "path": "js/AmazingProJS/Joint.js",
+        "md5": "2ca79bba2d0d57ebb202403455402533"
+      },
+      {
+        "path": "js/AmazingProJS/Joint2D.js",
+        "md5": "fb3a2cceba894e9d2a2a5b9d69d7a65c"
+      },
+      {
+        "path": "js/AmazingProJS/Joint3D.js",
+        "md5": "14d0ec65f3be144b6168802db4dc88b8"
+      },
+      {
+        "path": "js/AmazingProJS/JsonAsset.js",
+        "md5": "073ffd8ae91de81216f0aeb5ca7ded98"
+      },
+      {
+        "path": "js/AmazingProJS/KeyFrameTrack.js",
+        "md5": "30ca08542110ed60972fea2e72399f2d"
+      },
+      {
+        "path": "js/AmazingProJS/KeywordNodeManager.js",
+        "md5": "5b16e266b59fff6d8c518d4f5d3bb35e"
+      },
+      {
+        "path": "js/AmazingProJS/KeywordProgramProfile.js",
+        "md5": "0dbc202b3e8e84a74f5c16fa4e3d70d1"
+      },
+      {
+        "path": "js/AmazingProJS/LayerSet.js",
+        "md5": "b18b7f2a1438bcae29c68392820e6ec2"
+      },
+      {
+        "path": "js/AmazingProJS/Letter.js",
+        "md5": "0ea68651052a8d75285cf9eb051b6048"
+      },
+      {
+        "path": "js/AmazingProJS/LetterStyle.js",
+        "md5": "9cf944d00eca1896e6b3d0e37c1e9665"
+      },
+      {
+        "path": "js/AmazingProJS/LetterStyleLayer.js",
+        "md5": "a24415d963d475268b87dbf0e0ab4423"
+      },
+      {
+        "path": "js/AmazingProJS/Light.js",
+        "md5": "d707841dbddd501797de4e0ef4fa3d44"
+      },
+      {
+        "path": "js/AmazingProJS/LookAt.js",
+        "md5": "7b7c78b2e97d64f0df8b62ec03f6d67a"
+      },
+      {
+        "path": "js/AmazingProJS/Map.js",
+        "md5": "68e1ae346b62c1856aa7adfe923e3379"
+      },
+      {
+        "path": "js/AmazingProJS/MaskRenderer.js",
+        "md5": "88163b7b9621b4a0080ea107a9d8575b"
+      },
+      {
+        "path": "js/AmazingProJS/Mat3Vector.js",
+        "md5": "305236bc759c72710f0cf5c8f20111ce"
+      },
+      {
+        "path": "js/AmazingProJS/Mat4Vector.js",
+        "md5": "b5c957f63f30672379dbf36e0f0ad5e9"
+      },
+      {
+        "path": "js/AmazingProJS/Material.js",
+        "md5": "de5749922c7f834aa57bb0ed20a991a2"
+      },
+      {
+        "path": "js/AmazingProJS/MaterialArray.js",
+        "md5": "91d25a84ea5ce8c4cefe8b99bc06c48c"
+      },
+      {
+        "path": "js/AmazingProJS/MathNativeObjectPool.js",
+        "md5": "e5871fd8bc7c5c9440336f6668e30409"
+      },
+      {
+        "path": "js/AmazingProJS/Matrix3x3.js",
+        "md5": "e5fa60e7f13a3f70507bb89e33e41212"
+      },
+      {
+        "path": "js/AmazingProJS/Matrix4x4.js",
+        "md5": "21d139ce38d57e4ddb22fbbcbf5c80ff"
+      },
+      {
+        "path": "js/AmazingProJS/Mesh.js",
+        "md5": "cbf54ae4b917bd70b408944481c12b57"
+      },
+      {
+        "path": "js/AmazingProJS/MeshCollider.js",
+        "md5": "21c3856a34fd687514da6d00794ef193"
+      },
+      {
+        "path": "js/AmazingProJS/MeshCreateDesc.js",
+        "md5": "4838a60347e9849b76e9096b7c556b27"
+      },
+      {
+        "path": "js/AmazingProJS/MeshProvider.js",
+        "md5": "9ebde3ef0fbc13e44885299766c89565"
+      },
+      {
+        "path": "js/AmazingProJS/MeshQuad.js",
+        "md5": "4227211de1112ef8753f49c7f7f17d74"
+      },
+      {
+        "path": "js/AmazingProJS/MeshRectangle.js",
+        "md5": "507b5be815ba224d53b399bd9d5e8fc5"
+      },
+      {
+        "path": "js/AmazingProJS/MeshRenderer.js",
+        "md5": "cabff62cbaecd5186f4f4741681fdaa5"
+      },
+      {
+        "path": "js/AmazingProJS/MeshUtils.js",
+        "md5": "35c893e252d057a504a94fd5826ef059"
+      },
+      {
+        "path": "js/AmazingProJS/Meta.js",
+        "md5": "d987432787172d3b52a8fc4a5fd64009"
+      },
+      {
+        "path": "js/AmazingProJS/Model.js",
+        "md5": "3f53182bad227953b8b3a64755014aa8"
+      },
+      {
+        "path": "js/AmazingProJS/ModelNode.js",
+        "md5": "b380781de668d5d9f59d322325375be6"
+      },
+      {
+        "path": "js/AmazingProJS/Morpher.js",
+        "md5": "6e2fb26ef9aec6b9cd8fdbd8b16e57ba"
+      },
+      {
+        "path": "js/AmazingProJS/MorpherComponent.js",
+        "md5": "30655b3edf921f2135e3f30ae5626da1"
+      },
+      {
+        "path": "js/AmazingProJS/Mp4TextureProvider.js",
+        "md5": "c70605627a19b86fa0ab9d080038b7ed"
+      },
+      {
+        "path": "js/AmazingProJS/NetworkAPI.js",
+        "md5": "b5ced2d0a5a19756dc585124a3e215c6"
+      },
+      {
+        "path": "js/AmazingProJS/NetworkError.js",
+        "md5": "ccd794a054ebea4b32dd29d5ef822e44"
+      },
+      {
+        "path": "js/AmazingProJS/NetworkManager.js",
+        "md5": "c90c662de0816b1786d0fc573201c663"
+      },
+      {
+        "path": "js/AmazingProJS/NetworkUtils.js",
+        "md5": "fee01f7a5830d96a1de5315e55c24fbd"
+      },
+      {
+        "path": "js/AmazingProJS/NsEditorUtils.js",
+        "md5": "dd116e9fab2b805af297d7f503180252"
+      },
+      {
+        "path": "js/AmazingProJS/NsItem.js",
+        "md5": "8a70c62a3398e3ef23b8b6cf261bb6dc"
+      },
+      {
+        "path": "js/AmazingProJS/OriginalVertex.js",
+        "md5": "fa586e58e8705d11617bb40e92352579"
+      },
+      {
+        "path": "js/AmazingProJS/PBDSystem.js",
+        "md5": "0ec791030ec3d21fb49a295dde10fdaf"
+      },
+      {
+        "path": "js/AmazingProJS/Pass.js",
+        "md5": "fb094d206d5348efa1d45eb4b6b6b680"
+      },
+      {
+        "path": "js/AmazingProJS/Physics2D.js",
+        "md5": "c2859c67bde0690758d61efe73c76b7f"
+      },
+      {
+        "path": "js/AmazingProJS/Physics3D.js",
+        "md5": "c5976f5985f2efc97a652a276246ea11"
+      },
+      {
+        "path": "js/AmazingProJS/PhysicsMaterial.js",
+        "md5": "19284ec3464b829058ec0c00d94f561a"
+      },
+      {
+        "path": "js/AmazingProJS/PhysicsSystem2D.js",
+        "md5": "497c843c15eb471dd833be71fba8b198"
+      },
+      {
+        "path": "js/AmazingProJS/PinToMesh.js",
+        "md5": "7c75f17b0306e97f2dccfac6e8cc95bd"
+      },
+      {
+        "path": "js/AmazingProJS/PlaceHolderTextureProvider.js",
+        "md5": "e09537bf5e82787c1534ddf370bebd7a"
+      },
+      {
+        "path": "js/AmazingProJS/Plane.js",
+        "md5": "5a868906465e490d530ec22754357940"
+      },
+      {
+        "path": "js/AmazingProJS/PointCache.js",
+        "md5": "8f0b56a5bc68182e394d767e88f6cb6a"
+      },
+      {
+        "path": "js/AmazingProJS/PointJoint.js",
+        "md5": "aab46b15107efc10f9451d224c195e22"
+      },
+      {
+        "path": "js/AmazingProJS/PointLight.js",
+        "md5": "41889f71f8e86f65e258d8c01dd83d14"
+      },
+      {
+        "path": "js/AmazingProJS/PolygonCollider2D.js",
+        "md5": "7e332b857559611bbc6f3aae0117ca8c"
+      },
+      {
+        "path": "js/AmazingProJS/Prefab.js",
+        "md5": "c94140abfe6346cc98264a6f347844da"
+      },
+      {
+        "path": "js/AmazingProJS/Preset.js",
+        "md5": "c977624ea057aee717ec6f5de469fac1"
+      },
+      {
+        "path": "js/AmazingProJS/Profiler.js",
+        "md5": "cd248f03eab75c7828fcdec3b808b307"
+      },
+      {
+        "path": "js/AmazingProJS/PropertySheet.js",
+        "md5": "ac737cf43a337f0d7ff642689d66ffb7"
+      },
+      {
+        "path": "js/AmazingProJS/ProxyBase.js",
+        "md5": "de4653bb01a2e47de724b4e59c7b5ed6"
+      },
+      {
+        "path": "js/AmazingProJS/ProxyVector3f.js",
+        "md5": "4ffa373a0342aedb87b49b4c7b6d2ecb"
+      },
+      {
+        "path": "js/AmazingProJS/ProxyVector4f.js",
+        "md5": "a923eb3653a7b89576fb011cab4c0957"
+      },
+      {
+        "path": "js/AmazingProJS/QuatVector.js",
+        "md5": "adbf64e30a4ea33cae6ea400db0fdc7f"
+      },
+      {
+        "path": "js/AmazingProJS/Quaternionf.js",
+        "md5": "d2de85fb37488bff354c1350c829a7cc"
+      },
+      {
+        "path": "js/AmazingProJS/QueryURLSearchParams.js",
+        "md5": "cd59f24f0bb27f1302877490a0851ff6"
+      },
+      {
+        "path": "js/AmazingProJS/RTTICollectionUtils.js",
+        "md5": "63edc38c133b06b3aa9d1ef1e7aa4818"
+      },
+      {
+        "path": "js/AmazingProJS/RawText.js",
+        "md5": "05b43fee1f01c0d7aed23c0c9a0702e5"
+      },
+      {
+        "path": "js/AmazingProJS/Ray.js",
+        "md5": "4f3e59b81b5eeed8bed11000bb5ab154"
+      },
+      {
+        "path": "js/AmazingProJS/Rect.js",
+        "md5": "0e943f0851b12b7840609c93da65d276"
+      },
+      {
+        "path": "js/AmazingProJS/Reflection.js",
+        "md5": "04e8c07f400bd97d63e05b483db5e2ed"
+      },
+      {
+        "path": "js/AmazingProJS/RenderState.js",
+        "md5": "83a8ae8f3261a0814d560649956ee57c"
+      },
+      {
+        "path": "js/AmazingProJS/RenderStateLegacy.js",
+        "md5": "3e69d3f67fa2d96b8b87afc2768c0327"
+      },
+      {
+        "path": "js/AmazingProJS/RenderTextureCreateDesc.js",
+        "md5": "c91ca7903afb5691da9bd2f5bc86c2d5"
+      },
+      {
+        "path": "js/AmazingProJS/RenderUtils.js",
+        "md5": "4eb17c9d16ec3cf01019ad7232f48a04"
+      },
+      {
+        "path": "js/AmazingProJS/Renderer.js",
+        "md5": "58f19e22ac86dbc2af7e3ddf5ddaf7bb"
+      },
+      {
+        "path": "js/AmazingProJS/RequestParamParse.js",
+        "md5": "b7c61156cf8f6e1ecbd37df3dc932743"
+      },
+      {
+        "path": "js/AmazingProJS/RequestTask.js",
+        "md5": "77d6a85b8221a0320ad0744e4b5cb5c0"
+      },
+      {
+        "path": "js/AmazingProJS/ResetPropertyManager.js",
+        "md5": "d0a0921d239a2fb33cb428597528e31b"
+      },
+      {
+        "path": "js/AmazingProJS/RigidBody.js",
+        "md5": "4de99117431cbfda44e66fb508713633"
+      },
+      {
+        "path": "js/AmazingProJS/RigidBody2D.js",
+        "md5": "cb0a9a3df1e58ac2c77932844fe0be42"
+      },
+      {
+        "path": "js/AmazingProJS/Scene.js",
+        "md5": "59ca50791e0c24c70a31dbe4f6638848"
+      },
+      {
+        "path": "js/AmazingProJS/SceneManager.js",
+        "md5": "7d1c0f7d641ff63de08705e7ec8851ef"
+      },
+      {
+        "path": "js/AmazingProJS/SceneOutputRTProvider.js",
+        "md5": "71dd2493b09a02ae230f5af3dbabe370"
+      },
+      {
+        "path": "js/AmazingProJS/SceneUtils.js",
+        "md5": "3508e83f8eab4bda2fb9d824cc0d8f0f"
+      },
+      {
+        "path": "js/AmazingProJS/ScreenTextureCreateDesc.js",
+        "md5": "692b610366a2b19d9950b8e71e40848f"
+      },
+      {
+        "path": "js/AmazingProJS/ScreenTextureProvider.js",
+        "md5": "174aa3a3ac2d64f3ea6ec5ff37c57308"
+      },
+      {
+        "path": "js/AmazingProJS/ScreenTransform.js",
+        "md5": "7be4c06a2179717b2b18b2d6b1f42f4e"
+      },
+      {
+        "path": "js/AmazingProJS/Script.js",
+        "md5": "3d09f9f636b00394b47e9eb05f1f5ed7"
+      },
+      {
+        "path": "js/AmazingProJS/ScriptComponent.js",
+        "md5": "114ee62b1a135c5188117b671f9f0691"
+      },
+      {
+        "path": "js/AmazingProJS/ScriptCustomExternalObject.js",
+        "md5": "e8748b99a2d9c839797cd4538aaee6e6"
+      },
+      {
+        "path": "js/AmazingProJS/ScriptCustomLocalObject.js",
+        "md5": "d363deda0b4f4cce3e551e544a2a8800"
+      },
+      {
+        "path": "js/AmazingProJS/ScriptCustomObject.js",
+        "md5": "4ef5ef63f4969f9971be449778c0a055"
+      },
+      {
+        "path": "js/AmazingProJS/ScriptMethodInfo.js",
+        "md5": "ed15c51ccaccde241d1f7928d9202cf5"
+      },
+      {
+        "path": "js/AmazingProJS/ScriptableCullingParameters.js",
+        "md5": "99edbec48a5bb8508ea02f31e233718e"
+      },
+      {
+        "path": "js/AmazingProJS/SeqMesh.js",
+        "md5": "bfca2e6988fbbaa7a3f0a6b555ab94aa"
+      },
+      {
+        "path": "js/AmazingProJS/Shader.js",
+        "md5": "70f1b91b17254995960cdf8b8aeae809"
+      },
+      {
+        "path": "js/AmazingProJS/ShaderSnippet.js",
+        "md5": "45f78a0441a6ccbe9dc4e2c0624634af"
+      },
+      {
+        "path": "js/AmazingProJS/SharedMemory.js",
+        "md5": "eb6b7a5579ce85a23895a8585d9ecfd2"
+      },
+      {
+        "path": "js/AmazingProJS/SharedMemoryReader.js",
+        "md5": "08ebc7338e265c1f6ead3eab64990b22"
+      },
+      {
+        "path": "js/AmazingProJS/SharedMemoryUtils.js",
+        "md5": "e077f5e1a2d470e42ffe7fee74338c08"
+      },
+      {
+        "path": "js/AmazingProJS/SignalUtils.js",
+        "md5": "6d4174f13beba2fd33940b7e8439ac5b"
+      },
+      {
+        "path": "js/AmazingProJS/Skin.js",
+        "md5": "144a831be00b742a0d1c9a7c52055095"
+      },
+      {
+        "path": "js/AmazingProJS/SkinMeshRenderer.js",
+        "md5": "387e306b2a4d3cb4fd8b23674be7d0c7"
+      },
+      {
+        "path": "js/AmazingProJS/Sphere.js",
+        "md5": "4f0ee2dcf92adafc9acf32a076cd4e45"
+      },
+      {
+        "path": "js/AmazingProJS/SphereCollider.js",
+        "md5": "4bc26a4b68d14f6a9b0d7d4aa6399d56"
+      },
+      {
+        "path": "js/AmazingProJS/SpotLight.js",
+        "md5": "b38af8c4ff02922f9f87037b80e13ba5"
+      },
+      {
+        "path": "js/AmazingProJS/SpringJoint.js",
+        "md5": "515f327fe0c9a95a5650773414d4a2e3"
+      },
+      {
+        "path": "js/AmazingProJS/SpringJoint2D.js",
+        "md5": "45c63e727e6494131a533f906b674864"
+      },
+      {
+        "path": "js/AmazingProJS/Sprite2DRenderer.js",
+        "md5": "be0ad2d33e42e36fe97e48483175d025"
+      },
+      {
+        "path": "js/AmazingProJS/StretchModeUtils.js",
+        "md5": "561860f062a796cbe49a4a10d41c89af"
+      },
+      {
+        "path": "js/AmazingProJS/StringVector.js",
+        "md5": "51247b679ec773911f662c6e227bf2ba"
+      },
+      {
+        "path": "js/AmazingProJS/System.js",
+        "md5": "5c4d3ea65f98474b092683eeb4495f7e"
+      },
+      {
+        "path": "js/AmazingProJS/TableComponent.js",
+        "md5": "f65b0bab3d7cb421d5a0110aca1e3d9f"
+      },
+      {
+        "path": "js/AmazingProJS/Text.js",
+        "md5": "e867283189350b7e2379b12c442663b8"
+      },
+      {
+        "path": "js/AmazingProJS/Text3D.js",
+        "md5": "7b1b702b261af8845ad8f51aeeb6f92d"
+      },
+      {
+        "path": "js/AmazingProJS/TextAnimator.js",
+        "md5": "08b6374ed479af93b53ca03c7650d8d7"
+      },
+      {
+        "path": "js/AmazingProJS/TextAnimatorTest.js",
+        "md5": "1eed1d5468c5a58e0afaca85eb4f3a31"
+      },
+      {
+        "path": "js/AmazingProJS/TextBackground.js",
+        "md5": "b0701ab9ed2b07655b7fb0ab511dc8e4"
+      },
+      {
+        "path": "js/AmazingProJS/TextCanvas.js",
+        "md5": "8abd0ec92302d2ed9f51cbed6ca4a378"
+      },
+      {
+        "path": "js/AmazingProJS/TextCommand.js",
+        "md5": "d9b992223f90bb7c62dd7501f79b479e"
+      },
+      {
+        "path": "js/AmazingProJS/TextTexture.js",
+        "md5": "d456634488d94395a9cfada2d275dead"
+      },
+      {
+        "path": "js/AmazingProJS/TextTypeSettingParam.js",
+        "md5": "58c319bd0c35772013893c30e13e78ec"
+      },
+      {
+        "path": "js/AmazingProJS/Texture.js",
+        "md5": "b3b53fb4bacad6cd31983b0f03654d20"
+      },
+      {
+        "path": "js/AmazingProJS/Texture2DCreateDesc.js",
+        "md5": "6ede00d1e27c3f8bfb5b2c43d3ebe4b1"
+      },
+      {
+        "path": "js/AmazingProJS/Texture2DProvider.js",
+        "md5": "2b060ae5755421e404fcca7f0724f4b7"
+      },
+      {
+        "path": "js/AmazingProJS/Texture3DCreateDesc.js",
+        "md5": "21c580e8bfa4a4e6ad95f478bb78dd49"
+      },
+      {
+        "path": "js/AmazingProJS/Texture3DProvider.js",
+        "md5": "ab6fce0c8008acee49a577633e171b6c"
+      },
+      {
+        "path": "js/AmazingProJS/TextureCommonUtils.js",
+        "md5": "512c53be4816203a1a400cd4d6352a02"
+      },
+      {
+        "path": "js/AmazingProJS/TextureCreateDesc.js",
+        "md5": "4dc69389a1095f51b74082fb53a131fc"
+      },
+      {
+        "path": "js/AmazingProJS/TextureCubeCreateDesc.js",
+        "md5": "5ba111d0f1f00ed8d5a62ad545497d0c"
+      },
+      {
+        "path": "js/AmazingProJS/TextureCubeProvider.js",
+        "md5": "21581cdc56f6af49b0bfce373263f960"
+      },
+      {
+        "path": "js/AmazingProJS/TextureDelegateProvider.js",
+        "md5": "5ee732e707ef677b396739ba056e7a69"
+      },
+      {
+        "path": "js/AmazingProJS/TextureProvider.js",
+        "md5": "fc8030c2119eba795a07876afa6fbddf"
+      },
+      {
+        "path": "js/AmazingProJS/TextureSequence.js",
+        "md5": "17689ff1878c8a0b0f78f8c18249a534"
+      },
+      {
+        "path": "js/AmazingProJS/TextureUtils.js",
+        "md5": "6deece90f205739736f41cad0bbafd3f"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineActivityClip.js",
+        "md5": "e1500edaec72b009a9b8ae01837f47c6"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineActivityTrack.js",
+        "md5": "739aa2d8373ee5f239ac52d5ac048d49"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineAnimationClip.js",
+        "md5": "d243062b16b10fd8ef695e80f9f5e827"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineAnimationClipBase.js",
+        "md5": "342a27fedf8831ac5df7c96f9c05c505"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineAnimationTrack.js",
+        "md5": "b01051a220dac3d0f6b637f116ca3317"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineAnimationTrackBase.js",
+        "md5": "7207de6faab475ba7eb0651c49590a6a"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineAnimationUtils.js",
+        "md5": "d7b7c2245c278b55e86850238529a4db"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineAudioClip.js",
+        "md5": "f61940d64f28646f020430bcda761739"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineAudioKeyFrameTrack.js",
+        "md5": "7af1eea18c4f41c9fe4befbea081c08b"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineAudioTrack.js",
+        "md5": "83898dd60e8d513a2020a104a8c1529f"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineClip.js",
+        "md5": "be11ffa499b443a64c17626b5aabcee3"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineCommon.js",
+        "md5": "f42b5307d4883e6350d5a66181a37496"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineComposeClip.js",
+        "md5": "339aba680c0266e226c5b1b9c6560fb8"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineComposeTrack.js",
+        "md5": "9293893f534af0a5282d701847cdc13c"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineCore.js",
+        "md5": "ea99addc68b68d31061f81c2b5734a9f"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineKeyFrameClip.js",
+        "md5": "16ab7fd33ad6bdf92d9006a49fac30d7"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineKeyFrameTrack.js",
+        "md5": "b45117abbedf093d90fbf073d3ded8dd"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineMediaClip.js",
+        "md5": "d362b49789590d66fc85e5a74f4589c0"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineMediaTrack.js",
+        "md5": "de616cc2ed2ec1d50f6442c9b485a0ba"
+      },
+      {
+        "path": "js/AmazingProJS/TimelinePlayer.js",
+        "md5": "e4bf152e7c2f301ad42c047e132b807a"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineSignalClip.js",
+        "md5": "04a0d5653e1b5279f8e6d81a9ea564ac"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineSignalTrack.js",
+        "md5": "02ad4a38bef46ecc4df496cf5976dd22"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineSubClip.js",
+        "md5": "9352e450cad1203ea6357e3093cca410"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineSubKeyFrameTrack.js",
+        "md5": "31094b5bc25e610a1e38a91da4753401"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineSubTrack.js",
+        "md5": "08c576cf7109aa36668197896de03b51"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineText2DClip.js",
+        "md5": "02529128d51099641d6e222930bd82a5"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineText2DTrack.js",
+        "md5": "5de11e8116e18ca70c3f2a34bfb2d4e8"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineTextTemplateClip.js",
+        "md5": "304429717fea01a76d439b8043397ed5"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineTextTemplateTrack.js",
+        "md5": "c254a4b6c6d930c499151db3629f796f"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineTextureClip.js",
+        "md5": "b017750892dcbd406765f7f057fab845"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineTextureTrack.js",
+        "md5": "c7e7e70f2df9918d1edbfaa7b566feb1"
+      },
+      {
+        "path": "js/AmazingProJS/TimelineTrack.js",
+        "md5": "80b96e696128a3c5a1c57a6f9d7323c1"
+      },
+      {
+        "path": "js/AmazingProJS/TouchData.js",
+        "md5": "d072e317e818993db856ed2b90c8052f"
+      },
+      {
+        "path": "js/AmazingProJS/Transform.js",
+        "md5": "7cdefd1dc73f8e422eee4cc8bc95f621"
+      },
+      {
+        "path": "js/AmazingProJS/UIAnnotationDecorator.js",
+        "md5": "352fe978e2f8acdd0fe91039c54d7647"
+      },
+      {
+        "path": "js/AmazingProJS/UInt16Vector.js",
+        "md5": "a12be802162619f7950331d5ff7ee534"
+      },
+      {
+        "path": "js/AmazingProJS/UInt32Vector.js",
+        "md5": "d4b1a6df1830f5742479d9b44d166e03"
+      },
+      {
+        "path": "js/AmazingProJS/UInt8Vector.js",
+        "md5": "8255753abde48863ffae943b178ecf27"
+      },
+      {
+        "path": "js/AmazingProJS/UserDecorator.js",
+        "md5": "9f2aab649e2c6b78ec10f9f5aa0c0154"
+      },
+      {
+        "path": "js/AmazingProJS/UserIndex.js",
+        "md5": "856899421dd3175b8f296c64415cd13c"
+      },
+      {
+        "path": "js/AmazingProJS/UserRequire.js",
+        "md5": "d6e37bd2c6708b33056bacb03cc72d02"
+      },
+      {
+        "path": "js/AmazingProJS/UserScriptComponentUtils.js",
+        "md5": "f44628373d5ef66b9860b985b51c5795"
+      },
+      {
+        "path": "js/AmazingProJS/VFXBuffer.js",
+        "md5": "7c45d96b4d19d08d05e778a6fd1c003c"
+      },
+      {
+        "path": "js/AmazingProJS/VFXBufferData.js",
+        "md5": "06379744be1bfc96ec0589c9b48ca629"
+      },
+      {
+        "path": "js/AmazingProJS/VFXCommon.js",
+        "md5": "0034a015ad4170e940c951cdb783820b"
+      },
+      {
+        "path": "js/AmazingProJS/VFXContextBlock.js",
+        "md5": "c4ece21dbc372ca41ec36de087528262"
+      },
+      {
+        "path": "js/AmazingProJS/Value.js",
+        "md5": "c67ba322dde8c87182efc9a583221d61"
+      },
+      {
+        "path": "js/AmazingProJS/Vec2Vector.js",
+        "md5": "9767e7dae293e36eaf6c366878573d41"
+      },
+      {
+        "path": "js/AmazingProJS/Vec3Vector.js",
+        "md5": "a7a3ba690b99063b61b6b750852c376d"
+      },
+      {
+        "path": "js/AmazingProJS/Vec4Vector.js",
+        "md5": "dae9d1445fe2d1230da74fa7c05a88f8"
+      },
+      {
+        "path": "js/AmazingProJS/Vector.js",
+        "md5": "7d629c44f2418861ae4567c77c9854a8"
+      },
+      {
+        "path": "js/AmazingProJS/Vector2.js",
+        "md5": "9d530a7552add56ba8b436df0a4fea34"
+      },
+      {
+        "path": "js/AmazingProJS/Vector3.js",
+        "md5": "351549738fe66144ee2e6615dd008ea0"
+      },
+      {
+        "path": "js/AmazingProJS/Vector4.js",
+        "md5": "cf57de965c060f4116bc0031abbe9b28"
+      },
+      {
+        "path": "js/AmazingProJS/VertexAttribDesc.js",
+        "md5": "1e535c8c619a06345f7bd1c61d823212"
+      },
+      {
+        "path": "js/AmazingProJS/VideoAsset.js",
+        "md5": "bdb30a69fd017700e23d532a6ca032c2"
+      },
+      {
+        "path": "js/AmazingProJS/VisualEffect.js",
+        "md5": "3a4e6e1faafac6c5d1f6d5b55b6bc48b"
+      },
+      {
+        "path": "js/AmazingProJS/VisualEffectAsset.js",
+        "md5": "3fdca3adbe4d8bebbbb609dac21f8168"
+      },
+      {
+        "path": "js/AmazingProJS/WatchValueManager.js",
+        "md5": "694f14ed84ecc9e5df59b86f7d463955"
+      },
+      {
+        "path": "js/AmazingProJS/XShader.js",
+        "md5": "fe19cb52b37051c22d574098e1935868"
+      },
+      {
+        "path": "js/AmazingProJS/serialize.js",
+        "md5": "9f5a72577dd47b1a09546fa197852156"
+      },
+      {
+        "path": "js/AmazingProRuntime.js",
+        "md5": "81c36d040169c50f25b6ad6737183793"
+      },
+      {
+        "path": "js/amazingpro.js",
+        "md5": "db81a71a8aa0d478175b6be74f895410"
+      }
+    ]
+  }
+}

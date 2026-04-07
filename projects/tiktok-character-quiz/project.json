@@ -1,0 +1,25 @@
+{
+  "effectHouse": {
+    "id": "tiktok-character-quiz",
+    "name": "Which TikTok Character Are You?",
+    "version": "1.0.0",
+    "platform": "tiktok",
+    "type": "quiz_filter",
+    "sdkVersion": "3.0"
+  },
+  "scene": {
+    "canvasWidth": 1080,
+    "canvasHeight": 1920,
+    "fps": 60,
+    "cameraMode": "front",
+    "orientation": "portrait"
+  },
+  "assets": {
+    "maxSizeMB": 10,
+    "optimizeTextures": true
+  },
+  "submission": {
+    "targetDate": "2026-04-15",
+    "reviewNotes": "5-question personality quiz with cinematic result reveal. 4 result types based on scoring. Designed for front camera selfie mode."
+  }
+}

@@ -1,0 +1,8 @@
+module.exports = {
+  testDir: './tests',
+  testMatch: '**/*.spec.js',
+  use: {
+    headless: true,
+    browserName: 'chromium',
+  },
+};

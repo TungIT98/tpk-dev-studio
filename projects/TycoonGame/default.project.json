@@ -1,0 +1,21 @@
+{
+  "name": "TycoonGame",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$path": "src/ServerScriptService"
+    },
+    "ReplicatedStorage": {
+      "$path": "src/ReplicatedStorage"
+    },
+    "StarterGui": {
+      "$path": "src/StarterGui"
+    },
+    "StarterPlayer": {
+      "$path": "src/StarterPlayer"
+    },
+    "Workspace": {
+      "$path": "src/Workspace"
+    }
+  }
+}

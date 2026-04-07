@@ -1,0 +1,19 @@
+'use strict';
+const {APJS_Require} = require('../AmazingProJS/GlobalDefine.js');
+
+Object.defineProperty(exports, '__esModule', {value: true});
+exports.UserIndex = void 0;
+
+{% for module in modules %}
+{%- for item in module.imports -%}
+    const {{ item.variableName }} = APJS_Require('{{ item.requirePath }}');
+{%- endfor -%}
+{% endfor %}
+
+exports.UserIndex = {
+{% for module in modules -%}
+{%- for item in module.exports -%}
+    {{ item.key }}: {{ item.value }},
+{%- endfor -%}
+{% endfor %}
+};

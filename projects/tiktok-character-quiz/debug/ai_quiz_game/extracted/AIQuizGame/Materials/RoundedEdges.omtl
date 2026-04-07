@@ -1,0 +1,229 @@
+{
+    "Shader": "Unlit",
+    "RenderQueue": 2400,
+    "Pass": [
+        {
+            "Ausl": "a1",
+            "Cull": "Back",
+            "DepthWriteEnable": "On",
+            "BlendMode": "Disabled_v2",
+            "BlendModeOptions": [
+                "Disabled_v2",
+                "Normal_v2",
+                "Darken_v2",
+                "Multiply_v2",
+                "Lighten_v2",
+                "Screen_v2",
+                "Linear_Dodge_v2",
+                "Color_Burn_v2",
+                "Color_Dodge_v2",
+                "Overlay_v2",
+                "Soft_Light_v2",
+                "Difference_v2",
+                "Exclusion_v2"
+            ],
+            "ZTest": "LessEqual"
+        }
+    ]
+}
+---ENDJSON
+
+---BEGIN UIPROPERTY
+
+    $Overlay$
+    [OverlayTexture] _OverlayTexture (omtl_texture, 2D) = "AIQuizGame/Textures/Highlight_Image_Frame.png"
+    _OverlayOpacity (omtl_opacity, Range(0.000000, 1.000000)) = 0.000000
+
+    $omtl_albedo$
+    _AlbedoColor (omtl_color, Color) = [1.000000, 1.000000, 1.000000, 1.000000]
+    AlbedoTexture (omtl_texture_on, Defs) = 1
+    [AlbedoTexture] _AlbedoTexture (omtl_texture, 2D) = "Default_Material_Texture_Icon"
+    [AlbedoTexture] _EnableAlphaTest (omtl_alpha_test, Defs) = 1
+    [_EnableAlphaTest] _AlbedoCutoff (omtl_cutoff, Range(0.000000, 1.000000)) = 0.400000
+
+    $omtl_opacity$
+    AE_OpacityTexure (omtl_opacity, Defs) = 1
+    [AE_OpacityTexure] _OpacityTexture (omtl_texture, 2D) = "AIQuizGame/Textures/Image_Musk.png"
+
+    $omtl_uv_control$
+    UvControl (omtl_uv_control, Defs) = 0
+    [UvControl] _Tiling (omtl_tiling, Vec2) = [1.000000, 1.000000]
+    [UvControl] _Offset (omtl_offset, Vec2) = [0.000000, 0.000000]
+    [UvControl] _Rotation (omtl_rotation, Range(0.000000, 360.000000)) = 0.000000
+
+    $omtl_misc_render_setting$
+    VertexColorTinting (omtl_vertex_color_tinting, Defs) = 0
+    LinearWorkflow (omtl_linear_workflow, Defs) = 0
+
+---END UIPROPERTY
+
+---BEGIN a1
+
+    #version 300 es
+    #pragma only_renderers glsl30 metal
+
+    #pragma multi_compile AE_AMAZING_USE_BONES
+    #pragma shader_feature DEFINE_BUILTIN_MAT_UNIFORMS
+
+    // Attributes: attributes in vertex shader
+    #pragma input attributes
+        in mediump vec3 attPosition;
+        in highp vec2 attTexcoord0;
+        in lowp vec4 attColor;
+        #ifdef AE_AMAZING_USE_BONES
+            in mediump vec4 attBoneIds;
+            in highp vec4 attWeights;
+        #endif
+    #pragma end
+
+    // Varyings: outputs of vertex shader, inputs for fragment shader
+    #pragma varying varyings
+        highp vec2 g_vary_uv0;
+        mediump vec3 v_posWS;
+        mediump vec4 v_gl_pos;
+        #ifdef VertexColorTinting
+        lowp vec4 v_vertCol; 
+        #endif
+    #pragma end
+
+    // Output: output targets in fragment shader
+    #pragma output targets
+        out lowp vec4 o_fragColor;
+    #pragma end
+
+    // Vertex stage section in vertex shader
+    #pragma vs attributes varyings
+        precision mediump float;
+        #ifdef AE_AMAZING_USE_BONES
+            const int MAX_BONES = 100;
+            struct BoneMatrix
+            {
+                highp mat4 u_Bone[MAX_BONES];
+            };
+            layout(std140) uniform highp u_PalatteBuffer
+            {
+                BoneMatrix boneMatrix;
+            };
+        #endif
+        uniform highp mat4 u_Model;
+        uniform highp mat4 u_MVP;
+    #pragma end
+
+    // Fragment stage section in fragment shader
+    #pragma fs varyings targets
+        uniform lowp sampler2D u_FBOTexture;
+        uniform mediump mat4 u_View;
+        uniform mediump mat4 u_Projection;
+        #include "Packages/core/blend.glsl"
+        precision mediump float;
+        #ifdef AlbedoTexture
+            uniform lowp sampler2D _AlbedoTexture;
+            #ifdef _EnableAlphaTest
+                uniform lowp float     _AlbedoCutoff;
+            #endif
+        #endif
+        uniform lowp vec4 _AlbedoColor;
+        uniform lowp float _OverlayOpacity;
+        uniform lowp sampler2D _OverlayTexture;
+
+        #ifdef AE_OpacityTexure
+            uniform lowp sampler2D             _OpacityTexture;
+        #endif
+
+        #ifdef UvControl
+            #define D2R 0.01745329251
+
+            uniform highp vec2 _Tiling;
+            uniform highp vec2 _Offset;
+            uniform highp float _Rotation;
+            precision highp float;
+            vec2 UV_TRS(vec2 inputUV, vec2 uvCenter, vec2 uvPan, vec2 uvScale, float uvRotate)
+            {
+                vec2 minusCenterUV = inputUV - uvCenter;
+                float cosVal = cos(uvRotate);
+                float sinVal = sin(uvRotate);
+                mat2 rotateMat = mat2(cosVal, -sinVal, sinVal, cosVal);
+                
+                vec2 outputUV = minusCenterUV * uvScale;
+                outputUV = rotateMat * outputUV + uvCenter;
+                outputUV = outputUV + uvPan;
+                return outputUV;
+            }
+            precision mediump float;
+        #endif
+    #pragma end
+
+    // Entry function in vertex shader, must match "void vertex()"
+    void vertex() 
+    {
+        vec4 homogeneous_pos = vec4(attPosition, 1.0);
+        g_vary_uv0 = attTexcoord0;
+        #ifdef VertexColorTinting
+            v_vertCol = attColor;
+        #endif
+  
+        #ifdef AE_AMAZING_USE_BONES
+            highp mat4 boneTransform = boneMatrix.u_Bone[int(attBoneIds.x)] * attWeights.x;
+            boneTransform += boneMatrix.u_Bone[int(attBoneIds.y)] * attWeights.y;
+            boneTransform += boneMatrix.u_Bone[int(attBoneIds.z)] * attWeights.z;
+            boneTransform += boneMatrix.u_Bone[int(attBoneIds.w)] * attWeights.w;
+            vec3 bm_postiton  = (boneTransform * vec4(attPosition.xyz, 1.0)).xyz;
+            v_posWS = (u_Model * vec4(bm_postiton, 1.0)).xyz;
+            gl_Position = u_MVP * boneTransform * vec4(attPosition, 1.0);
+        #else
+            v_posWS =(u_Model * vec4(attPosition,1.0)).xyz;
+            gl_Position = u_MVP * homogeneous_pos;
+        #endif
+
+        v_gl_pos = gl_Position;
+    }
+
+    // Entry function in fragment shader, must match "void fragment()"
+    void fragment() 
+    {
+        precision highp float;
+        vec2 uv = g_vary_uv0;
+        #ifdef UvControl
+            uv = UV_TRS(uv.xy, vec2(0.5, 0.5), _Offset, _Tiling, _Rotation * D2R);
+        #endif
+        precision mediump float;
+        vec4 t_albedo = vec4(1, 1, 1, 1);
+        vec4 frameColor = texture(_OverlayTexture, uv);
+        #ifdef AlbedoTexture
+            t_albedo = texture(_AlbedoTexture, uv);
+            #ifdef LinearWorkflow
+                t_albedo.xyz = pow(t_albedo.xyz, vec3(2.2));
+            #endif
+        #endif
+        #ifdef VertexColorTinting
+            t_albedo *= v_vertCol;
+        #endif
+        #ifdef AE_OpacityTexure
+            vec4 t_OpacityTex = texture(_OpacityTexture, uv);
+            t_albedo.a = t_albedo.a * t_OpacityTex.a;
+        #endif
+            vec4 final_color = t_albedo * _AlbedoColor;
+        #if defined(AMAZING_USE_BLENDMODE_ALPHATEST) || (defined(AlbedoTexture) && defined(_EnableAlphaTest))
+            if(final_color.a < _AlbedoCutoff)
+                discard;
+        #endif
+        precision highp float;
+        vec2 ndc_coord = v_gl_pos.xy / v_gl_pos.w;
+        vec2 screen_coord = ndc_coord * 0.5 + vec2(0.5, 0.5);
+        precision mediump float;
+        #ifdef LinearWorkflow
+            final_color.xyz = pow(final_color.xyz, vec3(1.0/2.2));
+        #endif
+
+        if (t_OpacityTex.r > 0.9){
+            t_albedo.rgb = t_OpacityTex.rgb;
+        }
+        if (_OverlayOpacity > 0.5){
+            frameColor.a = frameColor.a * _OverlayOpacity;
+            t_albedo = mix(t_albedo, frameColor, frameColor.a);
+        }
+
+        o_fragColor = t_albedo;
+    }
+
+---END a1

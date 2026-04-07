@@ -1,0 +1,16 @@
+[
+  {
+    "guid": {
+      "a": "6c515e5e-3d3d-a9e1-f95c-8615bcd698e9",
+      "b": ""
+    },
+    "extraType": "JSAssetAnimSequence",
+    "name": "Randomizer_Star_0325_SC_v4",
+    "objGuid": "",
+    "rttiType": "Texture2D",
+    "version": "0.1.0",
+    "isVisibleInInspector": true,
+    "hideInPanel": false,
+    "resourceFilePath": "/Users/bytedance/Library/Application Support/EffectHouse/package/QuizGame/Animated Textures/Randomizer_Star_0325_SC_v4.OseqJSA"
+  }
+]

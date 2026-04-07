@@ -1,0 +1,13 @@
+'use strict';
+Object.defineProperty(exports, '__esModule', {value: true});
+exports.JSAssetExtNameToCtrMap = void 0;
+
+{% for item in providerMap %}
+const {{ item.value | valid: 'name' }}_1 = require("./{{ item.value | valid: 'name' }}");
+{% endfor %}
+
+exports.JSAssetExtNameToCtrMap = new Map([
+{% for item in providerMap %}
+["{{ item.key | valid: 'string' }}", {{ item.value | valid: 'name' }}_1.{{ item.value | valid: 'name' }}],
+{% endfor %}
+]);

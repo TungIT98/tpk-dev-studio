@@ -1,0 +1,354 @@
+{
+  "modules": [
+    {
+      "imports": [
+        {
+          "variableName": "AudioComponent_1",
+          "requirePath": "../Plugins/AudioComponent"
+        }
+      ],
+      "exports": [
+        {
+          "key": "AudioComponent",
+          "value": "AudioComponent_1.AudioComponent"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "Leaderboard_1",
+          "requirePath": "../Plugins/Leaderboard"
+        }
+      ],
+      "exports": [
+        {
+          "key": "Leaderboard",
+          "value": "Leaderboard_1.Leaderboard"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "DyeHair_1",
+          "requirePath": "../Plugins/DyeHair"
+        }
+      ],
+      "exports": [
+        {
+          "key": "DyeHair",
+          "value": "DyeHair_1.DyeHair"
+        },
+        {
+          "key": "DyeHairMode",
+          "value": "DyeHair_1.DyeHairMode"
+        },
+        {
+          "key": "GradientType",
+          "value": "DyeHair_1.GradientType"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "EyeColor_1",
+          "requirePath": "../Plugins/EyeColor"
+        }
+      ],
+      "exports": [
+        {
+          "key": "EyeColor",
+          "value": "EyeColor_1.EyeColor"
+        },
+        {
+          "key": "EyeApplyingScope",
+          "value": "EyeColor_1.EyeApplyingScope"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "Eyelashes3D_1",
+          "requirePath": "../Plugins/Eyelashes3D"
+        }
+      ],
+      "exports": [
+        {
+          "key": "Eyelashes3D",
+          "value": "Eyelashes3D_1.Eyelashes3D"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "FaceBindingV2_1",
+          "requirePath": "../Plugins/FaceBindingV2"
+        }
+      ],
+      "exports": [
+        {
+          "key": "FaceBinding",
+          "value": "FaceBindingV2_1.FaceBinding"
+        },
+        {
+          "key": "FaceBindingAnchorType",
+          "value": "FaceBindingV2_1.FaceBindingAnchorType"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "FullBodyAvatarDrive_1",
+          "requirePath": "../Plugins/FullBodyAvatarDrive"
+        }
+      ],
+      "exports": [
+        {
+          "key": "FullBodyAvatarDrive",
+          "value": "FullBodyAvatarDrive_1.FullBodyAvatarDrive"
+        },
+        {
+          "key": "FullBodyBoneName",
+          "value": "FullBodyAvatarDrive_1.FullBodyBoneName"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "Bloom_1",
+          "requirePath": "../Plugins/Bloom"
+        },
+        {
+          "variableName": "BokehBlur_1",
+          "requirePath": "../Plugins/BokehBlur"
+        },
+        {
+          "variableName": "ChromaticAberration_1",
+          "requirePath": "../Plugins/ChromaticAberration"
+        },
+        {
+          "variableName": "Custom_1",
+          "requirePath": "../Plugins/Custom"
+        },
+        {
+          "variableName": "Distort_1",
+          "requirePath": "../Plugins/Distort"
+        },
+        {
+          "variableName": "Fxaa_1",
+          "requirePath": "../Plugins/Fxaa"
+        },
+        {
+          "variableName": "Grain_1",
+          "requirePath": "../Plugins/Grain"
+        },
+        {
+          "variableName": "LensFlare_1",
+          "requirePath": "../Plugins/LensFlare"
+        },
+        {
+          "variableName": "MotionBlur_1",
+          "requirePath": "../Plugins/MotionBlur"
+        },
+        {
+          "variableName": "Vignette_1",
+          "requirePath": "../Plugins/Vignette"
+        },
+        {
+          "variableName": "PostProcess_1",
+          "requirePath": "../Plugins/PostProcess"
+        },
+        {
+          "variableName": "PostEffect_1",
+          "requirePath": "../Plugins/PostEffect"
+        }
+      ],
+      "exports": [
+        {
+          "key": "PostEffect",
+          "value": "PostEffect_1.PostEffect"
+        },
+        {
+          "key": "Bloom",
+          "value": "Bloom_1.Bloom"
+        },
+        {
+          "key": "BokehBlurShapeType",
+          "value": "BokehBlur_1.BokehBlurShapeType"
+        },
+        {
+          "key": "BokehBlur",
+          "value": "BokehBlur_1.BokehBlur"
+        },
+        {
+          "key": "ChromaticAberration",
+          "value": "ChromaticAberration_1.ChromaticAberration"
+        },
+        {
+          "key": "Custom",
+          "value": "Custom_1.Custom"
+        },
+        {
+          "key": "Distort",
+          "value": "Distort_1.Distort"
+        },
+        {
+          "key": "Fxaa",
+          "value": "Fxaa_1.Fxaa"
+        },
+        {
+          "key": "Grain",
+          "value": "Grain_1.Grain"
+        },
+        {
+          "key": "LensFlare",
+          "value": "LensFlare_1.LensFlare"
+        },
+        {
+          "key": "MotionBlur",
+          "value": "MotionBlur_1.MotionBlur"
+        },
+        {
+          "key": "Vignette",
+          "value": "Vignette_1.Vignette"
+        },
+        {
+          "key": "PostProcess",
+          "value": "PostProcess_1.PostProcess"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "Segmentation_1",
+          "requirePath": "../Plugins/Segmentation"
+        },
+        {
+          "variableName": "SegmentationTextureProvider_1",
+          "requirePath": "../Plugins/SegmentationTextureProvider"
+        }
+      ],
+      "exports": [
+        {
+          "key": "SegmentationType",
+          "value": "Segmentation_1.SegmentationType"
+        },
+        {
+          "key": "PetType",
+          "value": "SegmentationTextureProvider_1.PetType"
+        },
+        {
+          "key": "SegmentationTextureProvider",
+          "value": "SegmentationTextureProvider_1.SegmentationTextureProvider"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "SkinSmoothing_1",
+          "requirePath": "../Plugins/SkinSmoothing"
+        }
+      ],
+      "exports": [
+        {
+          "key": "FaceRetouch",
+          "value": "SkinSmoothing_1.FaceRetouch"
+        }
+      ]
+    },
+    {
+      "imports": [
+        {
+          "variableName": "Tween_1",
+          "requirePath": "../Plugins/Tween"
+        },
+        {
+          "variableName": "TweenAnimation_1",
+          "requirePath": "../Plugins/TweenAnimation"
+        },
+        {
+          "variableName": "TweenMaterial_1",
+          "requirePath": "../Plugins/TweenMaterial"
+        },
+        {
+          "variableName": "TweenTransform_1",
+          "requirePath": "../Plugins/TweenTransform"
+        },
+        {
+          "variableName": "TweenTransformFollow_1",
+          "requirePath": "../Plugins/TweenTransformFollow"
+        },
+        {
+          "variableName": "TweenTransformPath_1",
+          "requirePath": "../Plugins/TweenTransformPath"
+        }
+      ],
+      "exports": [
+        {
+          "key": "Tween",
+          "value": "Tween_1.Tween"
+        },
+        {
+          "key": "TweenAnimation",
+          "value": "TweenAnimation_1.TweenAnimation"
+        },
+        {
+          "key": "TweenTransform",
+          "value": "TweenTransform_1.TweenTransform"
+        },
+        {
+          "key": "TweenTransformFollow",
+          "value": "TweenTransformFollow_1.TweenTransformFollow"
+        },
+        {
+          "key": "TweenTransformPath",
+          "value": "TweenTransformPath_1.TweenTransformPath"
+        },
+        {
+          "key": "TweenMaterial",
+          "value": "TweenMaterial_1.TweenMaterial"
+        },
+        {
+          "key": "TweenType",
+          "value": "Tween_1.TweenType"
+        },
+        {
+          "key": "TweenPlayMode",
+          "value": "TweenAnimation_1.TweenPlayMode"
+        },
+        {
+          "key": "TweenMotionType",
+          "value": "TweenAnimation_1.TweenMotionType"
+        },
+        {
+          "key": "TweenTargetType",
+          "value": "TweenAnimation_1.TweenTargetType"
+        },
+        {
+          "key": "TweenOrientation",
+          "value": "TweenAnimation_1.TweenOrientation"
+        },
+        {
+          "key": "TweenPathType",
+          "value": "TweenAnimation_1.TweenPathType"
+        },
+        {
+          "key": "TweenEasingFunction",
+          "value": "TweenAnimation_1.TweenEasingFunction"
+        },
+        {
+          "key": "TweenEasingType",
+          "value": "TweenAnimation_1.TweenEasingType"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "moderation_texts": [],
+  "moderation_assets": [
+    "AmazingFeature/image/translated_wide.png",
+    "AmazingFeature/image/translated_narrow.png",
+    "AmazingFeature/image/userText_narrow.png",
+    "AmazingFeature/image/userText_wide.png"
+  ]
+}

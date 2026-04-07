@@ -1,0 +1,81 @@
+# Influencer Outreach Tracker
+Task: TKPA-5981 | TKP Dev Studio
+
+## Instructions
+Track all outreach efforts in this spreadsheet. Update status after each interaction.
+
+## Outreach Tracking Template
+Copy this format for each influencer:
+
+```
+INFLUENCER_NAME | PLATFORM | HANDLE | FOLLOWER_COUNT | TIER | OUTREACH_DATE | METHOD | STATUS | RESPONSE_DATE | NOTES
+```
+
+## Example Entry:
+```
+KreekCraft | YouTube | @KreekCraft | 900K | Tier 1 | 2026-04-05 | Email | Sent | - | Awaiting response
+```
+
+## Status Definitions
+- **Not Contacted** - On list, not yet reached out
+- **Sent** - Outreach sent, awaiting response
+- **Replied** - Received response, pending review
+- **Negotiating** - In discussion about terms
+- **Confirmed** - Deal agreed, scheduled content
+- **Content Live** - Video/post published
+- **Declined** - Not interested
+- **No Response** - Follow-up sent, then archived
+
+## Tracking Columns
+| Column | Description |
+|--------|-------------|
+| Name | Influencer display name |
+| Platform | YouTube, TikTok, Instagram |
+| Handle | @username or channel URL |
+| Follower Count | Verified follower/subscriber count |
+| Tier | 1 (300K+), 2 (150K-300K), 3 (100K-150K) |
+| Outreach Date | When first contact was made |
+| Method | Email, DM, Manager, Other |
+| Status | Current outreach status |
+| Response Date | When they responded (if any) |
+| Rate Quoted | Payment amount discussed |
+| Rate Agreed | Final agreed payment |
+| Content Type | Sponsored video, devlog, social post |
+| Publish Date | When content goes live |
+| Install Uplift | Extra installs attributed |
+| Notes | Additional context |
+
+## Batch Outreach Summary
+| Batch | Date | Number Contacted | Responses | Confirmations |
+|-------|------|------------------|-----------|---------------|
+| Batch 1 | TBD | 25 | - | - |
+| Batch 2 | TBD | 26 | - | - |
+
+## Weekly Report Template
+```
+## Week of [DATE]
+
+### Outreach Summary
+- Total outreach this week: [X]
+- Responses received: [X]
+- Confirmations: [X]
+- Content published: [X]
+
+### Platform Breakdown
+- YouTube: [X] outreach
+- TikTok: [X] outreach
+
+### Top Performers
+1. [INFLUENCER] - [X] installs from their content
+2. [INFLUENCER] - [X] installs from their content
+
+### Blockers
+- [Any issues or concerns]
+
+### Next Week's Goals
+- [Goals for the following week]
+```
+
+---
+*Last Updated: 2026-04-03*
+*Next Review: 2026-04-10*

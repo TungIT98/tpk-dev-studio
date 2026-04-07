@@ -1,0 +1,16 @@
+{
+  "project_id": "392c76f1-4678-faba-f430-58ab90868adf",
+  "template_id": "templateID_none",
+  "language": "en",
+  "OS": "windows",
+  "create_time": 1775446431000,
+  "upload_time": 1775446469698,
+  "duration_to_create": 38698,
+  "duration_creation": 305458,
+  "duration_background": 2560,
+  "tool_version": "5.7.1",
+  "tool_application": "Effect House",
+  "tool_build_type": "official",
+  "effect_reset_type": "auto",
+  "sound_start_time": 0
+}

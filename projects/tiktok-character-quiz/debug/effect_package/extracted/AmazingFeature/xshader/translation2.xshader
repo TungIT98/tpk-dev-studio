@@ -1,0 +1,38 @@
+%YAML 1.1
+--- !KeywordProgramProfile &1
+name: !<str> a1
+guid: {a: 1243808162942876031, b: 8298022099567246992}
+keywordSets:
+  -
+    - !<str> ""
+targetApis:
+  -
+    - !<str> glsl30
+  -
+    - !<str> metal
+stagets:
+  - __class: ShaderType
+    value: FRAGMENT
+  - __class: ShaderType
+    value: VERTEX
+shaderSnippets:
+  - __class: ShaderSnippet
+    name: !<str> ""
+    guid: {a: 14718100484187168863, b: 11026196606119212983}
+    source: !<str> ""
+    location: !<str> xshader/shaderGLES/translation.frag
+  - __class: ShaderSnippet
+    name: !<str> ""
+    guid: {a: 10396855639255094438, b: 3180272546826833287}
+    source: !<str> ""
+    location: !<str> xshader/shaderGLES/translation.vert
+  - __class: ShaderSnippet
+    name: !<str> ""
+    guid: {a: 12123848729992361310, b: 14021679742562025088}
+    source: !<str> ""
+    location: !<str> xshader/shaderMetal/translation.frag
+  - __class: ShaderSnippet
+    name: !<str> ""
+    guid: {a: 10106180602068402913, b: 7271663063409225883}
+    source: !<str> ""
+    location: !<str> xshader/shaderMetal/translation.vert

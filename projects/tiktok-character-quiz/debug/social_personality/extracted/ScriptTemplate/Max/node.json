@@ -1,0 +1,59 @@
+{
+	"name": "Max",
+	"id": "951ca0fb-c9f9-4d02-aa7a-09f5484ba2b0",
+	"inputs": [
+		{
+			"name": "A",
+			"type": "Double",
+			"item_type": "",
+			"default_value": "0",
+			"description": "The first value",
+			"displayType": "Number",
+			"nameKey": "graph_max_input_a",
+			"descriptionKey": "graph_max_input_a_description",
+			"displayTypeKey": "graph_type_number"
+		},
+		{
+			"name": "B",
+			"type": "Double",
+			"item_type": "",
+			"default_value": "0",
+			"description": "The second value",
+			"displayType": "Number",
+			"nameKey": "graph_max_input_b",
+			"descriptionKey": "graph_max_input_b_description",
+			"displayTypeKey": "graph_type_number"
+		}
+	],
+	"outputs": [
+		{
+			"name": "Result",
+			"type": "Double",
+			"item_type": "",
+			"description": "The greater value",
+			"displayType": "Number",
+			"nameKey": "graph_max_output_result",
+			"descriptionKey": "graph_max_output_result_description",
+			"displayTypeKey": "graph_type_number"
+		}
+	],
+	"js": "CGMax.js",
+	"version": "1.0.0",
+	"amazingVersion": "10.40.0",
+	"luaFuncName": "CGMax",
+	"category": "Math",
+	"description": "Return the greater of two values. You can click \"+\" to add more inputs.",
+	"productTypes": [
+		"EHO",
+		"EHD",
+		"EHI"
+	],
+	"addableInput": {
+		"index": 1,
+		"baseName": "",
+		"increaseStartIndex": "C"
+	},
+	"nameKey": "graph_max_name",
+	"categoryKey": "graph_category_math",
+	"descriptionKey": "graph_max_description"
+}

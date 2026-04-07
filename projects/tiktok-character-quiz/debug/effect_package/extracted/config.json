@@ -1,0 +1,39 @@
+{
+  "effect": {
+    "Link": [
+      {
+        "type": "TouchGes"
+      }
+    ],
+    "AmazingScene": {
+      "asynLoad": true,
+      "path": "AmazingFeature/"
+    },
+    "exclusiveScene": [
+      {
+        "priority": 9999,
+        "sceneKey": "GAN*",
+        "tagName": []
+      },
+      {
+        "priority": 9999,
+        "sceneKey": "Filter*",
+        "tagName": []
+      },
+      {
+        "priority": 9999,
+        "sceneKey": "FaceMakeup*",
+        "tagName": []
+      }
+    ]
+  },
+  "name": "EH_windowsonpezo02w5org7zuoilquk",
+  "bALG_BACH_CONFIG": true,
+  "version": "16.6.0",
+  "EffectHouse": {
+    "toolVersion": "5.7.1",
+    "sdkVersion": "20.5.0",
+    "minSdkVersion": "16.6.0",
+    "business": "TikTok"
+  }
+}
