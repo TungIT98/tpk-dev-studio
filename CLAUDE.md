@@ -45,7 +45,7 @@ CEO (d1ee87e8-76a9-4e23-8b88-3b5b186f1cc9) - idle
 ```
 
 ## Cloudflare
-- API Key: cfk_9j7dKqPIX28sWzPLgt4vE9yJjaaZDSSetvNlB9gGd07b9150
+- API Key: (stored in environment variable CLOUDFLARE_API_KEY)
 - EmDash CMS: https://emdash-cms.thanhtungtran364.workers.dev
 
 ## Critical Rule
