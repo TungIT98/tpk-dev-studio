@@ -54,3 +54,8 @@ Agent only reads `instructionsEntryFile` (AGENTS.md), NOT HEARTBEAT.md.
 
 ## API
 - Heartbeat: POST /api/agents/{agentId}/heartbeat/invoke
+
+## After Completing Tasks
+Sau khi hoàn thành task hoặc tạo file mới:
+1. Chạy `bash scripts/auto-sync.sh` để sync lên GitHub
+2. Script này tự động commit và push changes lên https://github.com/TungIT98/tpk-dev-studio
