@@ -1,0 +1,116 @@
+name: Code Review Coverage Tracker
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"  # Every Monday at 9am UTC
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'Branch to analyze'
+        required: false
+        default: 'master'
+
+jobs:
+  code-review-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get PR review statistics
+        run: |
+          #!/bin/bash
+          set -e
+
+          REPO=${{ github.repository }}
+          TARGET_BRANCH=${{ inputs.target_branch || 'master' }}
+          TOKEN=${{ secrets.GITHUB_TOKEN }}
+
+          # Get merged PRs from last 30 days
+          SINCE_DATE=$(date -d '30 days ago' +%Y-%m-%d)
+          echo "Analyzing PRs merged since: $SINCE_DATE"
+          echo "Target branch: $TARGET_BRANCH"
+
+          # Count total merged PRs
+          TOTAL_PRS=$(curl -s -H "Authorization: token $TOKEN" \
+            "https://api.github.com/repos/$REPO/pulls?state=closed&sort=updated&direction=desc&per_page=100" | \
+            jq '[.[] | select(.merged_at != null and .merged_at >= "'$SINCE_DATE'") | select(.base.ref == "'$TARGET_BRANCH'")] | length')
+
+          echo "Total merged PRs in last 30 days: $TOTAL_PRS"
+
+          if [ "$TOTAL_PRS" -eq 0 ]; then
+            echo "No merged PRs found in the last 30 days"
+            echo "coverage_percentage=100" >> $GITHUB_OUTPUT
+            echo "total_prs=0" >> $GITHUB_OUTPUT
+            echo "reviewed_prs=0" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Count PRs with at least one review
+          REVIEWED_PRS=0
+          for i in $(seq 0 $(( (TOTAL_PRS - 1) / 100 + 1 ))); do
+            PAGE=$((i + 1))
+            PR_DATA=$(curl -s -H "Authorization: token $TOKEN" \
+              "https://api.github.com/repos/$REPO/pulls?state=closed&sort=updated&direction=desc&per_page=100&page=$PAGE")
+
+            while IFS=read -r pr; do
+              PR_NUMBER=$(echo "$pr" | jq -r '.number')
+              REVIEW_COUNT=$(curl -s -H "Authorization: token $TOKEN" \
+                "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/reviews" | jq length)
+
+              if [ "$REVIEW_COUNT" -gt 0 ]; then
+                REVIEWED_PRS=$((REVIEWED_PRS + 1))
+              fi
+            done < <(echo "$PR_DATA" | jq -c '.[] | select(.merged_at != null and .merged_at >= "'$SINCE_DATE'") | select(.base.ref == "'$TARGET_BRANCH'")')
+          done
+
+          echo "PRs with at least one review: $REVIEWED_PRS"
+
+          # Calculate percentage
+          COVERAGE=$(awk "BEGIN {printf \"%.1f\", ($REVIEWED_PRS/$TOTAL_PRS)*100}")
+          echo "Code review coverage: $COVERAGE%"
+
+          # Output for GitHub Actions
+          echo "coverage_percentage=$COVERAGE" >> $GITHUB_OUTPUT
+          echo "total_prs=$TOTAL_PRS" >> $GITHUB_OUTPUT
+          echo "reviewed_prs=$REVIEWED_PRS" >> $GITHUB_OUTPUT
+
+          # Check if below threshold
+          if [ "$COVERAGE" -lt 80 ]; then
+            echo "WARNING: Code review coverage is below 80% threshold!"
+            echo "coverage_alert=true" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+          echo "coverage_alert=false" >> $GITHUB_OUTPUT
+          echo "Code review coverage is above 80% threshold"
+
+      - name: Create PR Comment Report
+        if: always()
+        run: |
+          COVERAGE=${{ steps.review-stats.outputs.coverage_percentage }}
+          TOTAL=${{ steps.review-stats.outputs.total_prs }}
+          REVIEWED=${{ steps.review-stats.outputs.reviewed_prs }}
+          ALERT=${{ steps.review-stats.outputs.coverage_alert }}
+
+          echo "## Code Review Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Total Merged PRs (30 days) | $TOTAL |" >> $GITHUB_STEP_SUMMARY
+          echo "| PRs with Reviews | $REVIEWED |" >> $GITHUB_STEP_SUMMARY
+          echo "| Coverage % | $COVERAGE% |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "$ALERT" == "true" ]; then
+            echo "⚠️ **WARNING:** Coverage below 80% threshold!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Coverage meets 80% threshold" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Fail if below threshold
+        if: steps.review-stats.outputs.coverage_alert == 'true'
+        run: |
+          echo "Code review coverage is below the 80% threshold (KR3.4)"
+          exit 1
