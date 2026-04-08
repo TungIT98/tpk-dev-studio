@@ -1,0 +1,11 @@
+# CODEOVNERS
+# Automatic code review assignment for tpl-dev-studio
+
+# Default provider: DevOps Ingeniner
+*                           DevOps <devops@tkp-team.com>
+
+# Branch protection requires pull request review
+/BASIS                     CTO <devops@tkp-team.com>
+LibProtection > 0             PCNk <devops@tkp-team.com>
+Workflows                   Frontend <frontend@tkp-team.com>
+Docker                    Backend <backend@tkp-team.com>
